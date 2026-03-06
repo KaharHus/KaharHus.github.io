@@ -27,7 +27,7 @@
       --card-bg:   var(--sea);
       --border:    rgba(232, 216, 190, 0.18);
 
-      --max-w:     720px;
+      --max-w:     1020px;
       --radius:    20px;
 
       --font-body:    'Libre Franklin', 'Source Han Sans', system-ui, sans-serif;
@@ -537,6 +537,12 @@
     .foot-links a:hover { color: var(--foot-hover); }
 
     /* ── RESPONSIVE ── */
+    @media (min-width: 800px) {
+      .side-grid { grid-template-columns: repeat(4, 1fr); }
+      .hero-card { min-height: 420px; }
+      .hero-name { font-size: clamp(52px, 5.5vw, 72px); }
+    }
+
     @media (max-width: 560px) {
       .hero-card { grid-template-columns: 1fr; min-height: auto; }
       .hero-photo { height: 260px; }

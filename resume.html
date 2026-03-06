@@ -27,7 +27,7 @@
       --card-bg:   var(--sea);
       --border:    rgba(232, 216, 190, 0.18);
 
-      --max-w:     720px;
+      --max-w:     1020px;
       --radius:    20px;
 
       --font-body:    'Libre Franklin', 'Source Han Sans', system-ui, sans-serif;
@@ -396,6 +396,12 @@
     .foot-links a:hover { color: var(--foot-hover); }
 
     /* ── RESPONSIVE ── */
+    @media (min-width: 800px) {
+      .resume-header { padding: 48px 52px; }
+      .resume-card { padding: 40px 52px; }
+      .exp-entry { grid-template-columns: 160px 1fr; }
+    }
+
     @media (max-width: 560px) {
       .resume-header { flex-direction: column; align-items: flex-start; padding: 28px 24px; }
       .resume-card { padding: 24px; }
