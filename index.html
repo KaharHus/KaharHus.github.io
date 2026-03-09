@@ -879,13 +879,23 @@
       if (!validate()) return;
       btn.disabled = true;
       btn.textContent = 'Sending…';
-      setTimeout(() => {
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(new FormData(form)).toString()
+      })
+      .then(() => {
         succ.style.display = 'inline';
         form.reset();
         btn.disabled = false;
         btn.textContent = 'Send message';
         setTimeout(() => succ.style.display = 'none', 6000);
-      }, 800);
+      })
+      .catch(() => {
+        btn.disabled = false;
+        btn.textContent = 'Send message';
+        alert('Something went wrong. Please try again.');
+      });
     });
   </script>
 
