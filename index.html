@@ -618,6 +618,39 @@
       footer { flex-direction: column; gap: 8px; text-align: center; }
       .hamburger { display: flex; }
     }
+
+    /* ── TYPING CURSOR ── */
+    .hero-name .cursor {
+      display: inline-block;
+      width: 3px;
+      height: 0.8em;
+      background: var(--sand);
+      margin-left: 4px;
+      vertical-align: middle;
+      animation: blink 0.7s step-end infinite;
+      transition: opacity 0.5s;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0; }
+    }
+
+    /* ── SCROLL FADE-INS ── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .case-item.fade-in:nth-child(2) { transition-delay: 0.1s; }
+    .case-item.fade-in:nth-child(3) { transition-delay: 0.2s; }
+    .case-item.fade-in:nth-child(4) { transition-delay: 0.3s; }
+    .side-item.fade-in:nth-child(2) { transition-delay: 0.1s; }
+    .side-item.fade-in:nth-child(3) { transition-delay: 0.2s; }
+    .side-item.fade-in:nth-child(4) { transition-delay: 0.3s; }
   </style>
 </head>
 <body>
@@ -665,15 +698,15 @@
         </div>
         <div class="hero-stats">
           <div class="stat">
-            <span class="stat-num">9+</span>
+            <span class="stat-num" data-target="9" data-suffix="+">9+</span>
             <span class="stat-label">Years experience</span>
           </div>
           <div class="stat">
-            <span class="stat-num">20+</span>
+            <span class="stat-num" data-target="20" data-suffix="+">20+</span>
             <span class="stat-label">Products launched</span>
           </div>
           <div class="stat">
-            <span class="stat-num">33m+</span>
+            <span class="stat-num" data-target="33" data-suffix="m+">33m+</span>
             <span class="stat-label">Users impacted</span>
           </div>
         </div>
@@ -689,7 +722,7 @@
       <h2 class="work-heading">What I've shipped</h2>
       <div class="cases">
 
-        <div class="case-item">
+        <div class="case-item fade-in">
           <div class="case-item-inner">
             <div>
               <p class="case-tag">Education</p>
@@ -700,7 +733,7 @@
           </div>
         </div>
 
-        <div class="case-item">
+        <div class="case-item fade-in">
           <div class="case-item-inner">
             <div>
               <p class="case-tag">NHS</p>
@@ -711,7 +744,7 @@
           </div>
         </div>
 
-        <div class="case-item">
+        <div class="case-item fade-in">
           <div class="case-item-inner">
             <div>
               <p class="case-tag">B2B Platform</p>
@@ -722,7 +755,7 @@
           </div>
         </div>
 
-        <div class="case-item">
+        <div class="case-item fade-in">
           <div class="case-item-inner">
             <div>
               <p class="case-tag">AI Product</p>
@@ -742,28 +775,28 @@
         <p class="label">On the Side</p>
         <div class="side-grid">
 
-          <div class="side-item">
+          <div class="side-item fade-in">
             <img src="Pushpa Logo.png" alt="Pushpa Fund" class="side-icon" style="width:36px;height:36px;border-radius:50%;object-fit:cover;" />
             <p class="side-name">Pushpa Fund</p>
             <p class="side-role">Operations Lead</p>
             <p class="side-desc">Building the systems, processes, and infrastructure to fund economic empowerment projects in Bangladesh.</p>
           </div>
 
-          <div class="side-item">
+          <div class="side-item fade-in">
             <span class="side-icon">🪜</span>
             <p class="side-name">The Brokerage</p>
             <p class="side-role">Trustee</p>
             <p class="side-desc">Supporting good governance, advising on leadership decisions, and shaping the charity's direction so it can improve social mobility.</p>
           </div>
 
-          <div class="side-item">
+          <div class="side-item fade-in">
             <img src="Pushpa Logo.png" alt="Pushpa Ventures" class="side-icon" style="width:36px;height:36px;border-radius:50%;object-fit:cover;" />
             <p class="side-name">Pushpa Ventures</p>
             <p class="side-role">Founder</p>
             <p class="side-desc">Building a way to connect diaspora capital and support with Bangladeshi businesses solving real local problems.</p>
           </div>
 
-          <div class="side-item">
+          <div class="side-item fade-in">
             <span class="side-icon">🌱</span>
             <p class="side-name">Urban Farming</p>
             <p class="side-role">Mallorca</p>
@@ -775,7 +808,7 @@
     </div>
 
     <!-- CONTACT -->
-    <div class="card contact-card" id="contact">
+    <div class="card contact-card fade-in" id="contact">
       <p class="label">Get in Touch</p>
       <h2 class="contact-heading">Working on something?<br>Let's talk.</h2>
       <p class="contact-sub">Send a message and I'll get back to you.</p>
@@ -851,6 +884,74 @@
     }
 
     Object.values(flds).forEach(el => el.addEventListener('input', () => el.classList.remove('error')));
+
+    // ── TYPING ANIMATION ──
+    (function() {
+      const nameEl = document.querySelector('.hero-name');
+      const line1 = 'KAHAR';
+      const line2 = 'HUSSAIN';
+      let phase = 1, charIndex = 0;
+
+      function render() {
+        const cursor = '<span class="cursor"></span>';
+        if (phase === 1) {
+          nameEl.innerHTML = line1.slice(0, charIndex) + cursor;
+        } else {
+          nameEl.innerHTML = line1 + '<br><span>' + line2.slice(0, charIndex) + '</span>' + cursor;
+        }
+      }
+
+      function type() {
+        const current = phase === 1 ? line1 : line2;
+        if (charIndex <= current.length) {
+          render();
+          charIndex++;
+          setTimeout(type, 80);
+        } else if (phase === 1) {
+          phase = 2; charIndex = 0;
+          setTimeout(type, 250);
+        } else {
+          setTimeout(() => {
+            const cur = nameEl.querySelector('.cursor');
+            if (cur) { cur.style.opacity = '0'; setTimeout(() => cur.remove(), 500); }
+          }, 1200);
+        }
+      }
+
+      setTimeout(type, 300);
+    })();
+
+    // ── SCROLL FADE-INS ──
+    const fadeObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          fadeObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.fade-in').forEach(el => fadeObserver.observe(el));
+
+    // ── STATS COUNTER ──
+    const statsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        const target = parseInt(el.dataset.target);
+        const suffix = el.dataset.suffix;
+        const duration = 1400;
+        const start = performance.now();
+        function tick(now) {
+          const progress = Math.min((now - start) / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          el.textContent = Math.round(eased * target) + suffix;
+          if (progress < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+        statsObserver.unobserve(el);
+      });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('.stat-num[data-target]').forEach(el => statsObserver.observe(el));
 
     // ── HAMBURGER MENU ──
     const hamburgerBtn = document.getElementById('hamburgerBtn');
