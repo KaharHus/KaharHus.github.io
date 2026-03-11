@@ -619,6 +619,58 @@
       .hamburger { display: flex; }
     }
 
+    /* ── TESTIMONIALS ── */
+    .testimonials-card { padding: 36px; overflow: hidden; }
+    .testimonials-heading { font-family: var(--font-head); font-size: clamp(28px, 4vw, 42px); color: var(--sand); margin: 6px 0 10px; }
+    .testimonials-sub { font-size: 15px; color: rgba(232,216,190,0.55); margin-bottom: 32px; max-width: 520px; }
+
+    .carousel-track-wrap { overflow: hidden; position: relative; }
+    .carousel-track {
+      display: flex;
+      gap: 20px;
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      will-change: transform;
+    }
+    .tcard {
+      flex: 0 0 320px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(232,216,190,0.08);
+      border-radius: 20px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .tcard-avatar {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-head);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--sand);
+      flex-shrink: 0;
+    }
+    .tcard-name { font-size: 17px; font-weight: 600; color: var(--sand); }
+    .tcard-role { font-size: 13px; color: var(--ochre); text-transform: uppercase; letter-spacing: 0.05em; margin-top: -8px; }
+    .tcard-quote { font-size: 14px; line-height: 1.7; color: rgba(232,216,190,0.7); }
+
+    .carousel-dots {
+      display: flex; gap: 8px; justify-content: center; margin-top: 24px;
+    }
+    .carousel-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: rgba(232,216,190,0.2);
+      border: none; cursor: pointer; padding: 0;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .carousel-dot.active { background: var(--ochre); transform: scale(1.3); }
+
+    @media (max-width: 560px) {
+      .tcard { flex: 0 0 280px; }
+      .testimonials-card { padding: 24px; }
+    }
+
     /* ── TYPING CURSOR ── */
     .hero-name .cursor {
       display: inline-block;
@@ -663,6 +715,7 @@
     <ul class="nav-links">
       <li><a href="#work">Work</a></li>
       <li><a href="#side">Side</a></li>
+      <li><a href="#testimonials">Praise</a></li>
       <li><a href="resume.html">Resume</a></li>
     </ul>
     <div style="display:flex;align-items:center;gap:6px;">
@@ -681,6 +734,7 @@
     <ul>
       <li><a href="#work">Work</a></li>
       <li><a href="#side">Side</a></li>
+      <li><a href="#testimonials">Praise</a></li>
       <li><a href="resume.html">Resume</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -805,6 +859,73 @@
 
         </div>
       </div>
+    </div>
+
+    <!-- TESTIMONIALS -->
+    <div class="card testimonials-card fade-in" id="testimonials">
+      <p class="label">Testimonials</p>
+      <h2 class="testimonials-heading">What others say</h2>
+      <p class="testimonials-sub">Feedback from the people I've worked with, on the impact I've had, and what it's like to partner with me.</p>
+      <div class="carousel-track-wrap">
+        <div class="carousel-track" id="carouselTrack">
+
+          <div class="tcard">
+            <div class="tcard-avatar" style="background:linear-gradient(135deg,#c1440e,#e07a3a);">XG</div>
+            <div>
+              <p class="tcard-name">Xander Gilbert</p>
+              <p class="tcard-role">Co-founder at Mojo</p>
+            </div>
+            <p class="tcard-quote">"Kahar left a lasting impact at Mojo in only a few months. Extremely disciplined, meticulous and hard-working, he would be an asset to any team. The quality of Kahar's research, communication and collaboration skills are exemplary. Moreover he brings a breadth of knowledge to the table in terms of product management and design thinking."</p>
+          </div>
+
+          <div class="tcard">
+            <div class="tcard-avatar" style="background:linear-gradient(135deg,#2D4A54,#4a7a8a);">BS</div>
+            <div>
+              <p class="tcard-name">Bronagh Smyth</p>
+              <p class="tcard-role">User Research Lead at Kainos</p>
+            </div>
+            <p class="tcard-quote">"I had the pleasure of working with Kahar during his time at Kainos, and specifically working on the NHS App. Kahar is an experienced and effective researcher, with a brilliant ability to shape and deliver research. His approach is methodical — he asks pertinent questions and gets to the heart of problems. He is great at building rapport with users, making his sessions invaluable."</p>
+          </div>
+
+          <div class="tcard">
+            <div class="tcard-avatar" style="background:linear-gradient(135deg,#5a6e3a,#8aaa4a);">ML</div>
+            <div>
+              <p class="tcard-name">Matt Leary</p>
+              <p class="tcard-role">Product Manager at Department for Education</p>
+            </div>
+            <p class="tcard-quote">"Kahar brings an accomplished skillset as a user researcher and digital professional alongside an emotional intelligence that results in uncommon insight and observation. I would jump at the opportunity to work with him again having personally benefited from his collaborative and engaging approach to work."</p>
+          </div>
+
+          <div class="tcard">
+            <div class="tcard-avatar" style="background:linear-gradient(135deg,#b8860b,#d4a82a);">KR</div>
+            <div>
+              <p class="tcard-name">Kendel Rupert</p>
+              <p class="tcard-role">Marketing Lead at Altruistiq</p>
+            </div>
+            <p class="tcard-quote">"Kahar's proactive, organised and outcome-focused. I handed him a company-wide goal and never had to worry again."</p>
+          </div>
+
+          <div class="tcard">
+            <div class="tcard-avatar" style="background:linear-gradient(135deg,#6b3a6b,#9a5a9a);">PB</div>
+            <div>
+              <p class="tcard-name">Patricia Barbosa</p>
+              <p class="tcard-role">Head of Design at Altruistiq</p>
+            </div>
+            <p class="tcard-quote">"Kahar's a great person to have in the room—he listens deeply, challenges constructively, and helps teams move forward."</p>
+          </div>
+
+          <div class="tcard">
+            <div class="tcard-avatar" style="background:linear-gradient(135deg,#1a3a2a,#2d6a4a);">MR</div>
+            <div>
+              <p class="tcard-name">Mahian Rab</p>
+              <p class="tcard-role">Founder at Pushpa</p>
+            </div>
+            <p class="tcard-quote">"Kahar is the kind of person who makes things happen. Whether he's deep in optimising our systems with his elite Notion skills, or making sure our ideas turn into action, he's all about efficiency and impact. He's the one keeping Pushpa running smoothly — because we'd be lost without him."</p>
+          </div>
+
+        </div>
+      </div>
+      <div class="carousel-dots" id="carouselDots"></div>
     </div>
 
     <!-- CONTACT -->
@@ -952,6 +1073,47 @@
       });
     }, { threshold: 0.5 });
     document.querySelectorAll('.stat-num[data-target]').forEach(el => statsObserver.observe(el));
+
+    // ── TESTIMONIALS CAROUSEL ──
+    (function() {
+      const track  = document.getElementById('carouselTrack');
+      const dotsEl = document.getElementById('carouselDots');
+      if (!track) return;
+
+      const cards = track.querySelectorAll('.tcard');
+      const total = cards.length;
+      let current = 0, timer;
+
+      // Build dots
+      cards.forEach((_, i) => {
+        const dot = document.createElement('button');
+        dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+        dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+        dot.addEventListener('click', () => { goTo(i); resetTimer(); });
+        dotsEl.appendChild(dot);
+      });
+
+      function goTo(index) {
+        current = (index + total) % total;
+        const cardW = cards[0].offsetWidth + 20; // width + gap
+        track.style.transform = `translateX(-${current * cardW}px)`;
+        dotsEl.querySelectorAll('.carousel-dot').forEach((d, i) =>
+          d.classList.toggle('active', i === current));
+      }
+
+      function next() { goTo(current + 1); }
+
+      function resetTimer() {
+        clearInterval(timer);
+        timer = setInterval(next, 4000);
+      }
+
+      // Pause on hover
+      track.parentElement.addEventListener('mouseenter', () => clearInterval(timer));
+      track.parentElement.addEventListener('mouseleave', resetTimer);
+
+      resetTimer();
+    })();
 
     // ── HAMBURGER MENU ──
     const hamburgerBtn = document.getElementById('hamburgerBtn');
