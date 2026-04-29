@@ -171,6 +171,33 @@
       color: rgba(232, 216, 190, 0.6); font-weight: 400;
     }
 
+    /* ── FARMING DROPDOWN ── */
+    .farming-toggle {
+      display: inline-flex; align-items: center; gap: 6px;
+      margin-top: 4px; background: none; border: none; padding: 0;
+      font-family: var(--font-body); font-size: 12px; font-weight: 600;
+      color: var(--ochre); cursor: pointer; letter-spacing: 0.02em;
+      transition: opacity 0.18s;
+    }
+    .farming-toggle:hover { opacity: 0.75; }
+    .farming-toggle svg { width: 14px; height: 14px; transition: transform 0.3s; flex-shrink: 0; }
+    .farming-toggle.open svg { transform: rotate(180deg); }
+
+    .farming-photos {
+      display: grid; grid-template-rows: 0fr;
+      transition: grid-template-rows 0.35s ease;
+      overflow: hidden;
+    }
+    .farming-photos.open { grid-template-rows: 1fr; }
+    .farming-photos-inner {
+      min-height: 0; display: grid;
+      grid-template-columns: 1fr 1fr; gap: 8px; padding-top: 12px;
+    }
+    .farming-photos-inner img {
+      width: 100%; aspect-ratio: 4/3; object-fit: cover;
+      border-radius: 10px; display: block;
+    }
+
     /* ── FOOTER ── */
     footer {
       display: flex; justify-content: space-between; align-items: center;
@@ -305,6 +332,18 @@
             <p class="side-name">Urban Farming</p>
             <p class="side-role">Mallorca</p>
             <p class="side-desc">Growing food in the hills of Mallorca. Slower pace. Better produce.</p>
+            <button class="farming-toggle" id="farmingToggle" aria-expanded="false">
+              See photos
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="farming-photos" id="farmingPhotos">
+              <div class="farming-photos-inner">
+                <img src="Farming image 1.jpg" alt="Urban farming photo 1" />
+                <img src="Farming image 2.jpg" alt="Urban farming photo 2" />
+                <img src="Farming image 3.jpg" alt="Urban farming photo 3" />
+                <img src="Farming image 4.jpg" alt="Urban farming photo 4" />
+              </div>
+            </div>
           </div>
 
         </div>
@@ -356,6 +395,14 @@
         hamburgerBtn.classList.remove('open');
         mobileMenu.classList.remove('open');
       }
+    });
+    const farmingToggle = document.getElementById('farmingToggle');
+    const farmingPhotos = document.getElementById('farmingPhotos');
+    farmingToggle.addEventListener('click', () => {
+      const open = farmingPhotos.classList.toggle('open');
+      farmingToggle.classList.toggle('open', open);
+      farmingToggle.setAttribute('aria-expanded', open);
+      farmingToggle.childNodes[0].textContent = open ? 'Hide photos' : 'See photos';
     });
   </script>
 
