@@ -159,22 +159,25 @@
     }
     .project-card--full .project-visual { height: 180px; }
 
-    .project-visual--terra { background: linear-gradient(135deg, #b5442a 0%, #7a2c1a 100%); }
-    .project-visual--sea   { background: linear-gradient(135deg, #2d4a54 0%, #162530 100%); }
+    /* Photo headers */
+    .project-visual--photo {
+      background-size: cover;
+      background-position: center;
+    }
+    /* Gradient overlay so badge stays readable on photos */
+    .project-visual--photo::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(22,32,40,0.55) 0%, rgba(22,32,40,0.10) 55%, transparent 100%);
+      border-radius: 0; width: auto; height: auto; opacity: 1;
+    }
+    .project-visual--photo::after { display: none; }
+
+    /* Gradient headers (fallback / Bangladesh 1971) */
     .project-visual--olive { background: linear-gradient(135deg, #5b6234 0%, #393d1d 100%); }
 
-    /* Decorative circles */
-    .project-visual::before,
-    .project-visual::after {
-      content: ''; position: absolute; border-radius: 50%;
-      background: #fff; opacity: 0.10;
-    }
-    .project-visual--terra::before { width: 300px; height: 300px; top: -90px; right: -70px; }
-    .project-visual--terra::after  { width: 160px; height: 160px; bottom: -50px; left: 30px; }
-    .project-visual--sea::before   { width: 260px; height: 260px; top: -70px; right: -50px; }
-    .project-visual--sea::after    { width: 110px; height: 110px; bottom: -25px; left: 55px; }
-    .project-visual--olive::before { width: 340px; height: 340px; top: -110px; right: -90px; }
-    .project-visual--olive::after  { width: 180px; height: 180px; bottom: -55px; left: 25px; }
+    /* Decorative circles — gradient cards only */
+    .project-visual--olive::before { content: ''; position: absolute; border-radius: 50%; background: #fff; opacity: 0.10; width: 340px; height: 340px; top: -110px; right: -90px; }
+    .project-visual--olive::after  { content: ''; position: absolute; border-radius: 50%; background: #fff; opacity: 0.10; width: 180px; height: 180px; bottom: -55px; left: 25px; }
 
     /* Large background monogram */
     .project-visual-mono {
@@ -383,9 +386,8 @@
 
       <!-- ─── CARD 1: THE LITTLE LOOP ─── -->
       <div class="project-card">
-        <div class="project-visual project-visual--terra">
+        <div class="project-visual project-visual--photo" style="background-image: url('The Little loop.png')">
           <span class="project-visual-badge">B2C · Sustainable Fashion</span>
-          <span class="project-visual-mono">TLL</span>
         </div>
         <div class="project-summary">
           <div>
@@ -454,9 +456,8 @@
 
       <!-- ─── CARD 2: MIKELE MASSAGE ─── -->
       <div class="project-card">
-        <div class="project-visual project-visual--sea">
+        <div class="project-visual project-visual--photo" style="background-image: url('Optimal Massage.jpeg')">
           <span class="project-visual-badge">B2C · Massage Therapy</span>
-          <span class="project-visual-mono">MM</span>
         </div>
         <div class="project-summary">
           <div>
