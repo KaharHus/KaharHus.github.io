@@ -29,6 +29,8 @@
     }
     html { scroll-behavior: smooth; }
     body { font-family: var(--font-body); background: var(--bg); min-height: 100vh; -webkit-font-smoothing: antialiased; color: var(--body-color); transition: background 0.3s, color 0.3s; }
+
+    /* NAV */
     nav { position: fixed; top: 16px; left: 50%; transform: translateX(-50%); width: calc(100% - 32px); max-width: var(--max-w); z-index: 100; background: var(--nav-bg); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid var(--nav-border); border-radius: 50px; padding: 10px 14px 10px 20px; display: flex; align-items: center; justify-content: space-between; transition: background 0.3s, border-color 0.3s; }
     .nav-brand { display: flex; flex-direction: column; gap: 1px; text-decoration: none; }
     .nav-name { font-size: 14px; font-weight: 600; color: var(--sand); letter-spacing: -0.01em; line-height: 1.2; }
@@ -43,7 +45,11 @@
     .theme-toggle svg { width: 15px; height: 15px; fill: currentColor; }
     .icon-moon { display: block; } .icon-sun { display: none; }
     [data-theme="dark"] .icon-moon { display: none; } [data-theme="dark"] .icon-sun { display: block; }
+
+    /* PAGE */
     .page { max-width: var(--max-w); margin: 0 auto; padding: 108px 16px 40px; display: flex; flex-direction: column; gap: 12px; }
+
+    /* HERO */
     .case-hero { background-size: cover; background-position: center; border-radius: var(--radius); min-height: 420px; display: flex; align-items: flex-end; position: relative; overflow: hidden; }
     .case-hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(0deg,rgba(18,28,36,0.92) 0%,rgba(18,28,36,0.40) 55%,transparent 100%); }
     .case-hero-inner { position: relative; z-index: 1; padding: 36px 44px; width: 100%; }
@@ -52,31 +58,45 @@
     .case-sector { font-size: 10px; font-weight: 700; letter-spacing: 0.10em; text-transform: uppercase; color: rgba(232,216,190,0.60); background: rgba(255,255,255,0.09); border: 1px solid rgba(255,255,255,0.15); border-radius: 50px; padding: 4px 12px; display: inline-block; margin-bottom: 12px; }
     .case-title { font-family: var(--font-display); font-weight: 900; font-size: clamp(34px,6vw,58px); color: var(--sand); letter-spacing: -0.02em; line-height: 1; margin-bottom: 10px; }
     .case-subtitle { font-size: 16px; color: rgba(232,216,190,0.55); line-height: 1.5; }
+
+    /* SECTIONS */
     .case-section { background: var(--card-surface); border-radius: var(--radius); padding: 36px 40px; transition: background 0.3s; }
     .case-label { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ochre); margin-bottom: 14px; }
     .case-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
     .case-body-text { font-size: 15px; line-height: 1.78; color: rgba(232,216,190,0.65); }
+
+    /* IMAGE GRID */
     .case-img-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
     .case-img-slot { background: var(--card-surface); border-radius: var(--radius); overflow: hidden; min-height: 280px; transition: background 0.3s; }
     .case-img-slot img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .img-placeholder { width: 100%; min-height: 280px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; border: 2px dashed rgba(232,216,190,0.10); border-radius: var(--radius); color: rgba(232,216,190,0.20); font-size: 12px; font-weight: 500; }
-    .img-placeholder svg { opacity: 0.4; }
-    .findings-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 12px; margin-top: 16px; }
-    .finding { background: rgba(232,216,190,0.04); border: 1px solid rgba(232,216,190,0.09); border-radius: 14px; padding: 20px; }
-    .finding-title { font-size: 14px; font-weight: 600; color: var(--sand); margin-bottom: 8px; }
-    .finding-text { font-size: 14px; line-height: 1.68; color: rgba(232,216,190,0.58); }
+
+    /* AREAS OF WORK — icon list */
+    .areas-list { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; }
+    .area-item { display: flex; gap: 16px; align-items: flex-start; background: rgba(232,216,190,0.04); border: 1px solid rgba(232,216,190,0.09); border-radius: 14px; padding: 20px; }
+    .area-icon { width: 40px; height: 40px; flex-shrink: 0; background: rgba(200,144,42,0.10); border: 1px solid rgba(200,144,42,0.20); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: var(--ochre); }
+    .area-icon svg { width: 18px; height: 18px; }
+    .area-title { font-size: 13px; font-weight: 700; color: var(--sand); margin-bottom: 6px; letter-spacing: 0.01em; }
+    .area-text { font-size: 13px; line-height: 1.65; color: rgba(232,216,190,0.58); }
+
+    /* OUTCOME */
     .case-outcome-box { background: rgba(200,144,42,0.07); border: 1px solid rgba(200,144,42,0.18); border-radius: 16px; padding: 24px 28px; }
     .case-outcome-box p { font-size: 15px; line-height: 1.72; color: rgba(232,216,190,0.80); }
+
+    /* FOOTER ROW */
     .case-footer-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
     .case-tags { display: flex; flex-wrap: wrap; gap: 6px; }
     .project-tag { font-size: 11px; font-weight: 600; color: var(--ochre); background: rgba(200,144,42,0.10); border: 1px solid rgba(200,144,42,0.22); border-radius: 50px; padding: 4px 12px; letter-spacing: 0.03em; }
     .case-back-btn { font-size: 13px; font-weight: 500; color: rgba(232,216,190,0.60); text-decoration: none; display: inline-flex; align-items: center; gap: 6px; padding: 9px 20px; border-radius: 50px; border: 1px solid rgba(232,216,190,0.18); background: var(--card-surface); transition: all 0.2s; }
     .case-back-btn:hover { color: var(--sand); border-color: rgba(232,216,190,0.35); }
+
+    /* FOOTER */
     footer { display: flex; justify-content: space-between; align-items: center; padding: 4px 4px 12px; }
     .foot-copy { font-size: 12px; color: var(--foot-color); }
     .foot-links { display: flex; gap: 16px; }
     .foot-links a { font-size: 12px; color: var(--foot-link); text-decoration: none; transition: color 0.18s; }
     .foot-links a:hover { color: var(--foot-hover); }
+
+    /* HAMBURGER */
     .hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; background: none; border: none; cursor: pointer; padding: 6px; border-radius: 8px; }
     .hamburger span { display: block; width: 20px; height: 2px; background: var(--sand); border-radius: 2px; transition: transform 0.25s, opacity 0.2s; }
     .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
@@ -87,7 +107,10 @@
     .mobile-menu ul { list-style: none; display: flex; flex-direction: column; gap: 2px; }
     .mobile-menu a { display: block; padding: 12px 16px; font-size: 15px; font-weight: 500; color: var(--sand); text-decoration: none; border-radius: 10px; transition: background 0.2s; }
     .mobile-menu a:hover { background: rgba(232,216,190,0.12); }
+
+    /* RESPONSIVE */
     @media (min-width: 800px) { .case-section { padding: 40px 48px; } .case-hero-inner { padding: 44px 52px; } }
+    @media (max-width: 700px) { .areas-list { grid-template-columns: 1fr; } }
     @media (max-width: 640px) {
       .case-2col { grid-template-columns: 1fr; gap: 24px; }
       .case-img-row { grid-template-columns: 1fr; }
@@ -152,55 +175,113 @@
       <div class="case-2col">
         <div>
           <p class="case-label">The Problem</p>
-          <p class="case-body-text">A growing fashion e-commerce brand with strong community roots, but the founder lacked the capacity and strategic know-how to scale. The brand needed clearer positioning, a stronger digital presence, and a structured roadmap to grow sustainably.</p>
+          <p class="case-body-text">A fashion e-commerce brand with strong community roots but no clear path to scale. The founder lacked the capacity and strategic framework to grow the business sustainably. Positioning was unclear, the digital presence was inconsistent, and there was no structured plan to move forward.</p>
         </div>
         <div>
           <p class="case-label">What I Did</p>
-          <p class="case-body-text">Ran discovery workshops to define the brand's identity, audience, values, and goals. Analysed Shopify data to identify drop-off points and redesign key aspects of the website and purchase journey. Built a strategic roadmap across five areas: business development, branding, community engagement, marketing & UX, and supply chain.</p>
+          <p class="case-body-text">Ran discovery workshops to define brand identity, audience, values, and goals. Analysed Shopify data to identify where visitors were dropping off. Redesigned key parts of the website and purchase journey. Built a strategic roadmap across five areas: business development, branding, community engagement, marketing and UX, and supply chain.</p>
         </div>
       </div>
     </div>
 
-    <!-- IMAGE ROW — add screenshots here -->
+    <!-- IMAGE ROW 1 -->
     <div class="case-img-row">
       <div class="case-img-slot">
-        <div class="img-placeholder">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><circle cx="8.5" cy="9.5" r="1.5" stroke="currentColor" stroke-width="1.5"/><path d="M3 16l5-5 4 4 3-3 3 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <span>Add screenshot</span>
-        </div>
+        <img src="Bangladesh 1971 Image 1.png" alt="Bangladesh 1971" />
       </div>
       <div class="case-img-slot">
-        <div class="img-placeholder">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><circle cx="8.5" cy="9.5" r="1.5" stroke="currentColor" stroke-width="1.5"/><path d="M3 16l5-5 4 4 3-3 3 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <span>Add screenshot</span>
-        </div>
+        <img src="Bangladesh 1971 Image 2.jpg" alt="Bangladesh 1971" />
       </div>
     </div>
 
     <!-- AREAS OF WORK -->
     <div class="case-section">
       <p class="case-label">Areas of Work</p>
-      <div class="findings-grid">
-        <div class="finding">
-          <p class="finding-title">Business development</p>
-          <p class="finding-text">Defined growth targets, mapped what scaling would require, and identified short and long-term milestones to give the founder a clear, sequenced path forward.</p>
+      <div class="areas-list">
+
+        <!-- Business development -->
+        <div class="area-item">
+          <div class="area-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/>
+              <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.5"/>
+              <circle cx="12" cy="12" r="1.5" fill="currentColor"/>
+            </svg>
+          </div>
+          <div>
+            <p class="area-title">Business Development</p>
+            <p class="area-text">Defined growth targets and mapped short and long-term milestones to give the founder a sequenced path forward.</p>
+          </div>
         </div>
-        <div class="finding">
-          <p class="finding-title">Branding</p>
-          <p class="finding-text">Developed brand guidelines covering tone, visuals, and storytelling. Aligned all touchpoints — website, social, and packaging — under a single, consistent identity.</p>
+
+        <!-- Branding -->
+        <div class="area-item">
+          <div class="area-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 20h9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div>
+            <p class="area-title">Branding</p>
+            <p class="area-text">Developed brand guidelines covering tone, visuals, and storytelling, and aligned all touchpoints, including website, social, and packaging, under a single consistent identity.</p>
+          </div>
         </div>
-        <div class="finding">
-          <p class="finding-title">Community engagement</p>
-          <p class="finding-text">Planned pop-ups, cultural events, and partnerships to connect the brand with diaspora and local communities offline — building loyalty beyond the transactional.</p>
+
+        <!-- Community -->
+        <div class="area-item">
+          <div class="area-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div>
+            <p class="area-title">Community Engagement</p>
+            <p class="area-text">Planned pop-ups, cultural events, and community partnerships to build loyalty with diaspora and local communities beyond the transactional.</p>
+          </div>
         </div>
-        <div class="finding">
-          <p class="finding-title">Marketing & UX</p>
-          <p class="finding-text">Reviewed the Shopify site experience, identified key drop-off points, refreshed Instagram content strategy, and created a 3-month content plan aligned to brand values and seasonal moments.</p>
+
+        <!-- Marketing & UX -->
+        <div class="area-item">
+          <div class="area-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <polyline points="17 6 23 6 23 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div>
+            <p class="area-title">Marketing & UX</p>
+            <p class="area-text">Reviewed the Shopify experience, identified key drop-off points, refreshed the Instagram content strategy, and created a 3-month content plan aligned to brand values and seasonal moments.</p>
+          </div>
         </div>
-        <div class="finding">
-          <p class="finding-title">Supply chain</p>
-          <p class="finding-text">Built a supplier tracker, evaluated partners against quality and reliability criteria, and strengthened relationships with suppliers in Bangladesh to support sustainable growth.</p>
+
+        <!-- Supply chain -->
+        <div class="area-item">
+          <div class="area-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div>
+            <p class="area-title">Supply Chain</p>
+            <p class="area-text">Built a supplier tracker, evaluated partners against quality and reliability criteria, and strengthened relationships with suppliers in Bangladesh.</p>
+          </div>
         </div>
+
+      </div>
+    </div>
+
+    <!-- IMAGE ROW 2 -->
+    <div class="case-img-row">
+      <div class="case-img-slot">
+        <img src="Bangladesh 1971 Image 3.png" alt="Bangladesh 1971" />
+      </div>
+      <div class="case-img-slot">
+        <img src="Bangladesh 1971 Image 4.png" alt="Bangladesh 1971" />
       </div>
     </div>
 
@@ -208,7 +289,7 @@
     <div class="case-section">
       <p class="case-label">Outcome</p>
       <div class="case-outcome-box">
-        <p>A more compelling and consistent social media presence, increased website traffic, a clearer brand identity, and a stronger supply chain foundation — giving the founder a clear path to scale with confidence.</p>
+        <p>Delivered a brand strategy, a redesigned purchase journey, and a structured 5-pillar growth roadmap. Social media engagement increased, website traffic grew, and the founder had a clear, actionable plan to scale with a stronger supply chain and consistent brand identity across all channels.</p>
       </div>
     </div>
 
