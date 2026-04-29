@@ -61,10 +61,13 @@
     .case-img-slot img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .img-placeholder { width: 100%; min-height: 280px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; border: 2px dashed rgba(232,216,190,0.10); border-radius: var(--radius); color: rgba(232,216,190,0.20); font-size: 12px; font-weight: 500; }
     .img-placeholder svg { opacity: 0.4; }
-    .findings-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 12px; margin-top: 16px; }
-    .finding { background: rgba(232,216,190,0.04); border: 1px solid rgba(232,216,190,0.09); border-radius: 14px; padding: 20px; }
-    .finding-title { font-size: 14px; font-weight: 600; color: var(--sand); margin-bottom: 8px; }
-    .finding-text { font-size: 14px; line-height: 1.68; color: rgba(232,216,190,0.58); }
+    /* Icon cards */
+    .areas-list { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; }
+    .area-item { display: flex; gap: 16px; align-items: flex-start; background: rgba(232,216,190,0.04); border: 1px solid rgba(232,216,190,0.09); border-radius: 14px; padding: 20px; }
+    .area-icon { width: 40px; height: 40px; flex-shrink: 0; background: rgba(200,144,42,0.10); border: 1px solid rgba(200,144,42,0.20); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: var(--ochre); }
+    .area-icon svg { width: 18px; height: 18px; }
+    .area-title { font-size: 13px; font-weight: 700; color: var(--sand); margin-bottom: 6px; }
+    .area-text { font-size: 13px; line-height: 1.65; color: rgba(232,216,190,0.58); }
     .case-outcome-box { background: rgba(200,144,42,0.07); border: 1px solid rgba(200,144,42,0.18); border-radius: 16px; padding: 24px 28px; }
     .case-outcome-box p { font-size: 15px; line-height: 1.72; color: rgba(232,216,190,0.80); }
     .case-footer-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
@@ -88,6 +91,7 @@
     .mobile-menu a { display: block; padding: 12px 16px; font-size: 15px; font-weight: 500; color: var(--sand); text-decoration: none; border-radius: 10px; transition: background 0.2s; }
     .mobile-menu a:hover { background: rgba(232,216,190,0.12); }
     @media (min-width: 800px) { .case-section { padding: 40px 48px; } .case-hero-inner { padding: 44px 52px; } }
+    @media (max-width: 700px) { .areas-list { grid-template-columns: 1fr; } }
     @media (max-width: 640px) {
       .case-2col { grid-template-columns: 1fr; gap: 24px; }
       .case-img-row { grid-template-columns: 1fr; }
@@ -156,12 +160,12 @@
         </div>
         <div>
           <p class="case-label">What I Did</p>
-          <p class="case-body-text">Conducted a full audit of the Google Business profile and existing website. Designed and built a newer, cheaper-to-run website with improved branding, imagery, and UX. Optimised for local SEO — including crafting a focused business description, selecting the right categories, and positioning the therapist's multilingual offer (English, Italian, Spanish) as a competitive differentiator.</p>
+          <p class="case-body-text">Conducted a full audit of the Google Business profile and existing website. Designed and built a newer, cheaper-to-run website with improved branding, imagery, and UX. Optimised for local SEO, including crafting a focused business description, selecting the right categories, and positioning the therapist's multilingual offer (English, Italian, Spanish) as a competitive differentiator.</p>
         </div>
       </div>
     </div>
 
-    <!-- IMAGE ROW — add screenshots here -->
+    <!-- IMAGE ROW 1 -->
     <div class="case-img-row">
       <div class="case-img-slot">
         <div class="img-placeholder">
@@ -177,25 +181,78 @@
       </div>
     </div>
 
-    <!-- IMPROVEMENTS -->
+    <!-- KEY IMPROVEMENTS -->
     <div class="case-section">
       <p class="case-label">Key Improvements</p>
-      <div class="findings-grid">
-        <div class="finding">
-          <p class="finding-title">Brand consistency</p>
-          <p class="finding-text">Unified the business name and messaging across all platforms — website, Google Business, and social — to avoid confusion and build recognition with new visitors.</p>
+      <div class="areas-list">
+
+        <!-- Brand Consistency -->
+        <div class="area-item">
+          <div class="area-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/>
+            </svg>
+          </div>
+          <div>
+            <p class="area-title">Brand Consistency</p>
+            <p class="area-text">Unified the business name and messaging across all platforms — website, Google Business, and social — to avoid confusion and build recognition with new visitors.</p>
+          </div>
         </div>
-        <div class="finding">
-          <p class="finding-title">Google Business optimisation</p>
-          <p class="finding-text">Rewrote the business description with relevant keywords, added primary and secondary service categories, and highlighted multilingual capabilities to broaden reach across English, Italian, and Spanish speakers.</p>
+
+        <!-- Google Business -->
+        <div class="area-item">
+          <div class="area-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+            </svg>
+          </div>
+          <div>
+            <p class="area-title">Google Business Optimisation</p>
+            <p class="area-text">Rewrote the business description with relevant keywords, added primary and secondary service categories, and highlighted multilingual capabilities across English, Italian, and Spanish.</p>
+          </div>
         </div>
-        <div class="finding">
-          <p class="finding-title">Website redesign</p>
-          <p class="finding-text">Built a cleaner, faster site with better imagery and a clear service hierarchy — making it easier for visitors to understand the offer and book, at a fraction of the running cost.</p>
+
+        <!-- Website Redesign -->
+        <div class="area-item">
+          <div class="area-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
+            </svg>
+          </div>
+          <div>
+            <p class="area-title">Website Redesign</p>
+            <p class="area-text">Built a cleaner, faster site with better imagery and a clear service hierarchy — making it easier for visitors to understand the offer and book, at a fraction of the running cost.</p>
+          </div>
         </div>
-        <div class="finding">
-          <p class="finding-title">Local SEO</p>
-          <p class="finding-text">Optimised for searches in both Mallorca and London, with location-specific language and a strong call-to-action throughout to convert local search intent into enquiries.</p>
+
+        <!-- Local SEO -->
+        <div class="area-item">
+          <div class="area-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35M11 8v6M8 11h6"/>
+            </svg>
+          </div>
+          <div>
+            <p class="area-title">Local SEO</p>
+            <p class="area-text">Optimised for searches in both Mallorca and London, with location-specific language and a strong call-to-action throughout to convert local search intent into enquiries.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- IMAGE ROW 2 -->
+    <div class="case-img-row">
+      <div class="case-img-slot">
+        <div class="img-placeholder">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><circle cx="8.5" cy="9.5" r="1.5" stroke="currentColor" stroke-width="1.5"/><path d="M3 16l5-5 4 4 3-3 3 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Add screenshot</span>
+        </div>
+      </div>
+      <div class="case-img-slot">
+        <div class="img-placeholder">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><circle cx="8.5" cy="9.5" r="1.5" stroke="currentColor" stroke-width="1.5"/><path d="M3 16l5-5 4 4 3-3 3 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Add screenshot</span>
         </div>
       </div>
     </div>
@@ -204,7 +261,7 @@
     <div class="case-section">
       <p class="case-label">Outcome</p>
       <div class="case-outcome-box">
-        <p>Increased inbound enquiries and faster response from prospective clients — contributing to a measurable uplift in monthly revenue. The new site costs significantly less to run while performing better across search and conversion.</p>
+        <p>Increased inbound enquiries and faster response from prospective clients, contributing to a measurable uplift in monthly revenue. The new site costs significantly less to run while performing better across search and conversion.</p>
       </div>
     </div>
 
