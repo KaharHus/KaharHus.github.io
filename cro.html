@@ -25,31 +25,30 @@
       --font-body:    'Libre Franklin', system-ui, sans-serif;
       --font-display: 'Lato', sans-serif;
 
-      --bg:          linear-gradient(160deg, #efe1c8 0%, #E8D8BE 55%, #e0d0ae 100%);
-      --body-color:  var(--sea);
-      --nav-bg:      rgba(45, 74, 84, 0.92);
-      --nav-border:  rgba(45, 74, 84, 0.10);
-      --hero-bg:     linear-gradient(135deg, rgba(34, 56, 64, 0.88) 0%, rgba(45, 74, 84, 0.88) 100%);
+      --bg:           linear-gradient(160deg, #efe1c8 0%, #E8D8BE 55%, #e0d0ae 100%);
+      --body-color:   var(--sea);
+      --nav-bg:       rgba(45, 74, 84, 0.92);
+      --nav-border:   rgba(45, 74, 84, 0.10);
+      --hero-bg:      linear-gradient(135deg, rgba(34, 56, 64, 0.88) 0%, rgba(45, 74, 84, 0.88) 100%);
       --card-surface: var(--sea);
-      --foot-color:  rgba(45, 74, 84, 0.50);
-      --foot-link:   rgba(45, 74, 84, 0.55);
-      --foot-hover:  var(--sea);
+      --foot-color:   rgba(45, 74, 84, 0.50);
+      --foot-link:    rgba(45, 74, 84, 0.55);
+      --foot-hover:   var(--sea);
     }
 
     [data-theme="dark"] {
-      --bg:          linear-gradient(160deg, #162028 0%, #1d2e38 55%, #182530 100%);
-      --body-color:  var(--sand);
-      --nav-bg:      rgba(22, 32, 40, 0.95);
-      --nav-border:  rgba(232, 216, 190, 0.08);
-      --hero-bg:     linear-gradient(135deg, #223840 0%, #2D4A54 100%);
+      --bg:           linear-gradient(160deg, #162028 0%, #1d2e38 55%, #182530 100%);
+      --body-color:   var(--sand);
+      --nav-bg:       rgba(22, 32, 40, 0.95);
+      --nav-border:   rgba(232, 216, 190, 0.08);
+      --hero-bg:      linear-gradient(135deg, #223840 0%, #2D4A54 100%);
       --card-surface: #243844;
-      --foot-color:  rgba(232, 216, 190, 0.40);
-      --foot-link:   rgba(232, 216, 190, 0.55);
-      --foot-hover:  var(--sand);
+      --foot-color:   rgba(232, 216, 190, 0.40);
+      --foot-link:    rgba(232, 216, 190, 0.55);
+      --foot-hover:   var(--sand);
     }
 
     html { scroll-behavior: smooth; }
-
     body {
       font-family: var(--font-body);
       background: var(--bg);
@@ -58,8 +57,6 @@
       color: var(--body-color);
       transition: background 0.3s ease, color 0.3s ease;
     }
-
-    .card { background: var(--card-surface); border-radius: var(--radius); overflow: hidden; transition: background 0.3s ease; }
 
     /* ── NAV ── */
     nav {
@@ -71,10 +68,9 @@
       display: flex; align-items: center; justify-content: space-between;
       transition: background 0.3s ease, border-color 0.3s ease;
     }
-
     .nav-brand { display: flex; flex-direction: column; gap: 1px; text-decoration: none; }
-    .nav-name { font-size: 14px; font-weight: 600; color: var(--sand); letter-spacing: -0.01em; line-height: 1.2; }
-    .nav-sub { font-size: 11px; color: rgba(232, 216, 190, 0.55); }
+    .nav-name  { font-size: 14px; font-weight: 600; color: var(--sand); letter-spacing: -0.01em; line-height: 1.2; }
+    .nav-sub   { font-size: 11px; color: rgba(232, 216, 190, 0.55); }
     .nav-links { display: flex; gap: 4px; list-style: none; }
     .nav-links a {
       font-size: 13px; font-weight: 500; color: rgba(232, 216, 190, 0.65);
@@ -133,67 +129,150 @@
       font-weight: 400; line-height: 1.6; max-width: 560px;
     }
 
-    /* ── PROJECT CARD ── */
-    .project-card { padding: 36px; }
+    /* ── PROJECTS GRID ── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
 
-    .project-meta {
-      display: flex; align-items: center; gap: 12px; margin-bottom: 20px; flex-wrap: wrap;
+    /* ── PROJECT CARD ── */
+    .project-card {
+      background: var(--card-surface);
+      border-radius: var(--radius);
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.3s ease;
     }
-    .project-client {
-      font-family: var(--font-display);
-      font-size: 22px; font-weight: 700;
-      color: var(--sand); letter-spacing: -0.01em;
+    .project-card:not(.expanded):hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.18);
     }
-    .project-sector {
-      font-size: 11px; font-weight: 600; letter-spacing: 0.07em;
-      text-transform: uppercase; color: var(--ochre);
-      background: rgba(200, 144, 42, 0.1);
-      border: 1px solid rgba(200, 144, 42, 0.22);
+    .project-card--full { grid-column: 1 / -1; }
+
+    /* ── VISUAL HEADER ── */
+    .project-visual {
+      position: relative;
+      height: 210px;
+      overflow: hidden;
+      user-select: none;
+    }
+    .project-card--full .project-visual { height: 180px; }
+
+    .project-visual--terra { background: linear-gradient(135deg, #b5442a 0%, #7a2c1a 100%); }
+    .project-visual--sea   { background: linear-gradient(135deg, #2d4a54 0%, #162530 100%); }
+    .project-visual--olive { background: linear-gradient(135deg, #5b6234 0%, #393d1d 100%); }
+
+    /* Decorative circles */
+    .project-visual::before,
+    .project-visual::after {
+      content: ''; position: absolute; border-radius: 50%;
+      background: #fff; opacity: 0.10;
+    }
+    .project-visual--terra::before { width: 300px; height: 300px; top: -90px; right: -70px; }
+    .project-visual--terra::after  { width: 160px; height: 160px; bottom: -50px; left: 30px; }
+    .project-visual--sea::before   { width: 260px; height: 260px; top: -70px; right: -50px; }
+    .project-visual--sea::after    { width: 110px; height: 110px; bottom: -25px; left: 55px; }
+    .project-visual--olive::before { width: 340px; height: 340px; top: -110px; right: -90px; }
+    .project-visual--olive::after  { width: 180px; height: 180px; bottom: -55px; left: 25px; }
+
+    /* Large background monogram */
+    .project-visual-mono {
+      position: absolute; bottom: 10px; left: 20px;
+      font-family: var(--font-display); font-size: 100px; font-weight: 900;
+      color: rgba(255, 255, 255, 0.07); letter-spacing: -0.06em; line-height: 1;
+    }
+    /* Sector badge */
+    .project-visual-badge {
+      position: absolute; top: 20px; left: 22px;
+      font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.60);
+      background: rgba(255, 255, 255, 0.09);
+      border: 1px solid rgba(255, 255, 255, 0.16);
       border-radius: 50px; padding: 4px 12px;
     }
 
-    .project-divider {
-      border: none; border-top: 1px solid var(--border); margin: 24px 0;
+    /* ── CARD SUMMARY (always visible) ── */
+    .project-summary {
+      padding: 24px 26px 22px;
+      display: flex; flex-direction: column; gap: 16px;
     }
+    .project-client {
+      font-family: var(--font-display);
+      font-size: 24px; font-weight: 700;
+      color: var(--sand); letter-spacing: -0.02em; line-height: 1.1;
+      margin-bottom: 4px;
+    }
+    .project-teaser {
+      font-size: 14px; font-weight: 400;
+      color: rgba(232, 216, 190, 0.50); line-height: 1.5;
+    }
+    .project-summary-footer {
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    }
+    .project-preview-tags { display: flex; flex-wrap: wrap; gap: 6px; }
 
-    .project-section-label {
-      font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
-      text-transform: uppercase; color: var(--ochre); margin-bottom: 10px;
-    }
-
-    .project-text {
-      font-size: 14px; line-height: 1.75;
-      color: rgba(232, 216, 190, 0.7); font-weight: 400;
-    }
-
-    .project-body {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 32px;
-    }
-
-    .project-outcome {
-      background: rgba(200, 144, 42, 0.07);
-      border: 1px solid rgba(200, 144, 42, 0.18);
-      border-radius: 14px; padding: 20px 24px;
-      margin-top: 24px;
-    }
-    .project-outcome-label {
-      font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
-      text-transform: uppercase; color: var(--ochre); margin-bottom: 8px;
-    }
-    .project-outcome p {
-      font-size: 14px; line-height: 1.65;
-      color: rgba(232, 216, 190, 0.8); font-weight: 400;
-    }
-
-    .project-tags {
-      display: flex; flex-wrap: wrap; gap: 6px; margin-top: 20px;
-    }
+    /* Tags (shared between preview and expanded) */
     .project-tag {
       font-size: 11px; font-weight: 600; color: var(--ochre);
-      background: rgba(200, 144, 42, 0.1);
+      background: rgba(200, 144, 42, 0.10);
       border: 1px solid rgba(200, 144, 42, 0.22);
       border-radius: 50px; padding: 4px 12px; letter-spacing: 0.03em;
     }
+
+    /* ── EXPAND BUTTON ── */
+    .expand-btn {
+      width: 40px; height: 40px; flex-shrink: 0;
+      border-radius: 50%;
+      background: rgba(232, 216, 190, 0.08);
+      border: 1px solid rgba(232, 216, 190, 0.18);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--sand); cursor: pointer;
+      transition: background 0.28s ease, border-color 0.28s ease;
+    }
+    .expand-btn svg {
+      width: 15px; height: 15px;
+      transition: transform 0.38s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .project-card.expanded .expand-btn {
+      background: var(--ochre); border-color: var(--ochre);
+    }
+    .project-card.expanded .expand-btn svg { transform: rotate(90deg); }
+
+    /* ── EXPANDABLE DETAILS ── */
+    .project-details-wrapper {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.46s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .project-card.expanded .project-details-wrapper { grid-template-rows: 1fr; }
+    .project-details-inner { overflow: hidden; }
+    .project-details { padding: 0 26px 28px; }
+
+    .project-divider {
+      border: none; border-top: 1px solid var(--border); margin: 0 0 26px;
+    }
+    .project-section-label {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--ochre); margin-bottom: 10px;
+    }
+    .project-body {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-bottom: 24px;
+    }
+    .project-text {
+      font-size: 14px; line-height: 1.78; color: rgba(232, 216, 190, 0.65);
+    }
+    .project-outcome {
+      background: rgba(200, 144, 42, 0.07);
+      border: 1px solid rgba(200, 144, 42, 0.18);
+      border-radius: 14px; padding: 20px 22px; margin-bottom: 20px;
+    }
+    .project-outcome-label {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--ochre); margin-bottom: 8px;
+    }
+    .project-outcome p { font-size: 14px; line-height: 1.65; color: rgba(232, 216, 190, 0.78); }
+    .project-tags-full { display: flex; flex-wrap: wrap; gap: 6px; }
 
     /* ── FOOTER ── */
     footer {
@@ -237,17 +316,19 @@
     /* ── RESPONSIVE ── */
     @media (min-width: 800px) {
       .cro-header { padding: 48px 52px; }
-      .project-card { padding: 40px 52px; }
     }
-
-    @media (max-width: 640px) {
+    @media (max-width: 700px) {
+      .projects-grid { grid-template-columns: 1fr; }
+      .project-card--full { grid-column: auto; }
       .project-body { grid-template-columns: 1fr; gap: 20px; }
       .cro-header { padding: 28px 24px; }
-      .project-card { padding: 24px; }
+      .project-visual { height: 180px; }
+    }
+    @media (max-width: 640px) {
       .nav-links { display: none; }
       .nav-cta { display: none; }
-      footer { flex-direction: column; gap: 8px; text-align: center; }
       .hamburger { display: flex; }
+      footer { flex-direction: column; gap: 8px; text-align: center; }
     }
   </style>
 </head>
@@ -297,160 +378,220 @@
       <p>Research-led projects focused on improving digital experiences, conversion rates, and brand presence for consumer businesses.</p>
     </div>
 
-    <!-- PROJECT 1: LITTLE LOOP -->
-    <div class="card project-card">
-      <div class="project-meta">
-        <span class="project-client">The Little Loop</span>
-        <span class="project-sector">B2C · Sustainable Fashion</span>
-      </div>
+    <!-- PROJECTS GRID -->
+    <div class="projects-grid">
 
-      <div class="project-body">
-        <div>
-          <p class="project-section-label">The Problem</p>
-          <p class="project-text">The Little Loop anticipated a major traffic spike following their appearance on Dragons' Den. With a narrow window to capitalise on increased visibility, they needed to understand why users were abandoning the signup and subscription journey — and what changes would convert that traffic into subscribers.</p>
+      <!-- ─── CARD 1: THE LITTLE LOOP ─── -->
+      <div class="project-card">
+        <div class="project-visual project-visual--terra">
+          <span class="project-visual-badge">B2C · Sustainable Fashion</span>
+          <span class="project-visual-mono">TLL</span>
         </div>
-        <div>
-          <p class="project-section-label">What I Did</p>
-          <p class="project-text">Conducted moderated in-depth interviews and usability testing across key pages and tasks. Focused on understanding why visitors came, what they tried to do, and where they dropped off — with a specific lens on the subscription flow.</p>
+        <div class="project-summary">
+          <div>
+            <h2 class="project-client">The Little Loop</h2>
+            <p class="project-teaser">Converting Dragons' Den traffic into subscribers</p>
+          </div>
+          <div class="project-summary-footer">
+            <div class="project-preview-tags">
+              <span class="project-tag">UX Audit</span>
+              <span class="project-tag">Usability Testing</span>
+            </div>
+            <button class="expand-btn" aria-label="View case study">
+              <svg viewBox="0 0 16 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 5h14M10 1l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
         </div>
-      </div>
-
-      <hr class="project-divider" />
-
-      <p class="project-section-label">Key Findings & Recommendations</p>
-      <div class="project-body">
-        <div>
-          <p class="project-text">
-            <strong style="color:var(--sand);">Trust signals</strong> — Users needed reassurance. Recommended prioritising the "featured in" carousel, surfacing brand partnerships earlier, and integrating Trustpilot reviews.<br><br>
-            <strong style="color:var(--sand);">Cognitive overload</strong> — Homepage was overwhelming. Recommended restructuring the nav and reordering content to surface the most critical assets — how it works, pricing, and value for money — before anything else.<br><br>
-            <strong style="color:var(--sand);">Value messaging</strong> — "Is renting good value?" content wasn't landing. Recommended reframing around a hypothetical parent persona with multiple spending scenarios to make it personal and relatable.
-          </p>
-        </div>
-        <div>
-          <p class="project-text">
-            <strong style="color:var(--sand);">Feature discovery</strong> — Key subscription features weren't visible early enough. Recommended longform content and clearer plan labels in the "pick a plan" section.<br><br>
-            <strong style="color:var(--sand);">Stock anxiety</strong> — Users disengaged when desired items showed as out of stock. Recommended reassurance messaging and a "notify me when available" feature.<br><br>
-            <strong style="color:var(--sand);">Mobile experience</strong> — Site wasn't optimised for small screens. Recommended a content-first approach, removing visual clutter, and ensuring full responsiveness throughout.
-          </p>
-        </div>
-      </div>
-
-      <div class="project-outcome">
-        <p class="project-outcome-label">Outcome</p>
-        <p>Delivered a prioritised set of conversion recommendations ahead of the Dragons' Den broadcast. Findings gave the team a clear brief to redesign key journey stages — with a strong hypothesis that clearly communicating the value proposition onsite would directly increase subscription conversion.</p>
-      </div>
-
-      <div class="project-tags">
-        <span class="project-tag">Conversion Research</span>
-        <span class="project-tag">Usability Testing</span>
-        <span class="project-tag">UX Audit</span>
-        <span class="project-tag">B2C</span>
-        <span class="project-tag">E-Commerce</span>
-        <span class="project-tag">Mobile Optimisation</span>
-      </div>
-    </div>
-
-    <!-- PROJECT 2: MIKELE MASSAGE -->
-    <div class="card project-card">
-      <div class="project-meta">
-        <span class="project-client">Mikele Massage</span>
-        <span class="project-sector">B2C · Massage Therapy</span>
-      </div>
-
-      <div class="project-body">
-        <div>
-          <p class="project-section-label">The Problem</p>
-          <p class="project-text">A massage therapist with strong client reviews and a loyal base, but an inconsistent online presence holding back growth. The website was costly, outdated, and not optimised for local search — limiting new client acquisition and making it harder for people to find and trust the business online.</p>
-        </div>
-        <div>
-          <p class="project-section-label">What I Did</p>
-          <p class="project-text">Conducted a full audit of the Google Business profile and existing website. Designed and built a newer, cheaper-to-run website with improved branding, imagery, and UX. Optimised for local SEO — including crafting a focused business description, selecting the right Google Business categories, and positioning the therapist's multilingual offer (English, Italian, Spanish) as a competitive differentiator.</p>
-        </div>
-      </div>
-
-      <hr class="project-divider" />
-
-      <p class="project-section-label">Key Improvements</p>
-      <div class="project-body">
-        <div>
-          <p class="project-text">
-            <strong style="color:var(--sand);">Brand consistency</strong> — Unified the business name and messaging across all platforms to avoid confusion and build recognition.<br><br>
-            <strong style="color:var(--sand);">Google Business optimisation</strong> — Rewrote the business description with relevant keywords, added primary and secondary service categories, and highlighted multilingual capabilities to broaden reach.
-          </p>
-        </div>
-        <div>
-          <p class="project-text">
-            <strong style="color:var(--sand);">Website redesign</strong> — Built a cleaner, faster site with better imagery and a clear service hierarchy — making it easier for visitors to understand the offer and book.<br><br>
-            <strong style="color:var(--sand);">Local SEO</strong> — Optimised for searches in both Mallorca and London, with location-specific language and a strong call-to-action throughout.
-          </p>
+        <div class="project-details-wrapper">
+          <div class="project-details-inner">
+            <div class="project-details">
+              <hr class="project-divider" />
+              <div class="project-body">
+                <div>
+                  <p class="project-section-label">The Problem</p>
+                  <p class="project-text">The Little Loop anticipated a major traffic spike following their appearance on Dragons' Den. With a narrow window to capitalise on increased visibility, they needed to understand why users were abandoning the signup and subscription journey — and what changes would convert that traffic into subscribers.</p>
+                </div>
+                <div>
+                  <p class="project-section-label">What I Did</p>
+                  <p class="project-text">Conducted moderated in-depth interviews and usability testing across key pages and tasks. Focused on understanding why visitors came, what they tried to do, and where they dropped off — with a specific lens on the subscription flow.</p>
+                </div>
+              </div>
+              <p class="project-section-label">Key Findings & Recommendations</p>
+              <div class="project-body">
+                <div>
+                  <p class="project-text">
+                    <strong style="color:var(--sand);">Trust signals</strong> — Users needed reassurance. Recommended prioritising the "featured in" carousel, surfacing brand partnerships earlier, and integrating Trustpilot reviews.<br><br>
+                    <strong style="color:var(--sand);">Cognitive overload</strong> — Homepage was overwhelming. Recommended restructuring the nav and reordering content to surface how it works, pricing, and value for money before anything else.<br><br>
+                    <strong style="color:var(--sand);">Value messaging</strong> — Recommended reframing around a hypothetical parent persona with multiple spending scenarios to make it personal and relatable.
+                  </p>
+                </div>
+                <div>
+                  <p class="project-text">
+                    <strong style="color:var(--sand);">Feature discovery</strong> — Key subscription features weren't visible early enough. Recommended longform content and clearer plan labels in the "pick a plan" section.<br><br>
+                    <strong style="color:var(--sand);">Stock anxiety</strong> — Users disengaged when desired items showed as out of stock. Recommended reassurance messaging and a "notify me when available" feature.<br><br>
+                    <strong style="color:var(--sand);">Mobile experience</strong> — Site wasn't optimised for small screens. Recommended a content-first approach, removing visual clutter, and ensuring full responsiveness throughout.
+                  </p>
+                </div>
+              </div>
+              <div class="project-outcome">
+                <p class="project-outcome-label">Outcome</p>
+                <p>Delivered a prioritised set of conversion recommendations ahead of the Dragons' Den broadcast. Findings gave the team a clear brief to redesign key journey stages — with a strong hypothesis that clearly communicating the value proposition onsite would directly increase subscription conversion.</p>
+              </div>
+              <div class="project-tags-full">
+                <span class="project-tag">Conversion Research</span>
+                <span class="project-tag">Usability Testing</span>
+                <span class="project-tag">UX Audit</span>
+                <span class="project-tag">B2C</span>
+                <span class="project-tag">E-Commerce</span>
+                <span class="project-tag">Mobile Optimisation</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="project-outcome">
-        <p class="project-outcome-label">Outcome</p>
-        <p>Increased inbound enquiries and faster response from prospective clients — contributing to a measurable uplift in monthly revenue.</p>
-      </div>
-
-      <div class="project-tags">
-        <span class="project-tag">Website Design & Build</span>
-        <span class="project-tag">Local SEO</span>
-        <span class="project-tag">Google Business</span>
-        <span class="project-tag">Branding</span>
-        <span class="project-tag">Business Consultancy</span>
-      </div>
-    </div>
-
-    <!-- PROJECT 3: BANGLADESH 1971 -->
-    <div class="card project-card">
-      <div class="project-meta">
-        <span class="project-client">Bangladesh 1971</span>
-        <span class="project-sector">B2C · Fashion E-Commerce</span>
-      </div>
-
-      <div class="project-body">
-        <div>
-          <p class="project-section-label">The Problem</p>
-          <p class="project-text">A growing fashion e-commerce brand with strong community roots, but the founder lacked the capacity and strategic know-how to scale. The brand needed clearer positioning, a stronger digital presence, and a structured roadmap to grow sustainably.</p>
+      <!-- ─── CARD 2: MIKELE MASSAGE ─── -->
+      <div class="project-card">
+        <div class="project-visual project-visual--sea">
+          <span class="project-visual-badge">B2C · Massage Therapy</span>
+          <span class="project-visual-mono">MM</span>
         </div>
-        <div>
-          <p class="project-section-label">What I Did</p>
-          <p class="project-text">Ran discovery workshops to define the brand's identity, audience, values, and goals. Analysed Shopify data to identify drop-off points and redesign key aspects of the website and purchase journey. Built a strategic roadmap across five areas: business development, branding, community engagement, marketing & UX, and supply chain.</p>
+        <div class="project-summary">
+          <div>
+            <h2 class="project-client">Mikele Massage</h2>
+            <p class="project-teaser">Building a stronger local presence and better website</p>
+          </div>
+          <div class="project-summary-footer">
+            <div class="project-preview-tags">
+              <span class="project-tag">Website Design</span>
+              <span class="project-tag">Local SEO</span>
+            </div>
+            <button class="expand-btn" aria-label="View case study">
+              <svg viewBox="0 0 16 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 5h14M10 1l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="project-details-wrapper">
+          <div class="project-details-inner">
+            <div class="project-details">
+              <hr class="project-divider" />
+              <div class="project-body">
+                <div>
+                  <p class="project-section-label">The Problem</p>
+                  <p class="project-text">A massage therapist with strong client reviews and a loyal base, but an inconsistent online presence holding back growth. The website was costly, outdated, and not optimised for local search — limiting new client acquisition and making it harder for people to find and trust the business online.</p>
+                </div>
+                <div>
+                  <p class="project-section-label">What I Did</p>
+                  <p class="project-text">Conducted a full audit of the Google Business profile and existing website. Designed and built a newer, cheaper-to-run website with improved branding, imagery, and UX. Optimised for local SEO — including crafting a focused business description, selecting the right categories, and positioning the therapist's multilingual offer (English, Italian, Spanish) as a competitive differentiator.</p>
+                </div>
+              </div>
+              <p class="project-section-label">Key Improvements</p>
+              <div class="project-body">
+                <div>
+                  <p class="project-text">
+                    <strong style="color:var(--sand);">Brand consistency</strong> — Unified the business name and messaging across all platforms to avoid confusion and build recognition.<br><br>
+                    <strong style="color:var(--sand);">Google Business optimisation</strong> — Rewrote the business description with relevant keywords, added primary and secondary service categories, and highlighted multilingual capabilities to broaden reach.
+                  </p>
+                </div>
+                <div>
+                  <p class="project-text">
+                    <strong style="color:var(--sand);">Website redesign</strong> — Built a cleaner, faster site with better imagery and a clear service hierarchy — making it easier for visitors to understand the offer and book.<br><br>
+                    <strong style="color:var(--sand);">Local SEO</strong> — Optimised for searches in both Mallorca and London, with location-specific language and a strong call-to-action throughout.
+                  </p>
+                </div>
+              </div>
+              <div class="project-outcome">
+                <p class="project-outcome-label">Outcome</p>
+                <p>Increased inbound enquiries and faster response from prospective clients — contributing to a measurable uplift in monthly revenue.</p>
+              </div>
+              <div class="project-tags-full">
+                <span class="project-tag">Website Design & Build</span>
+                <span class="project-tag">Local SEO</span>
+                <span class="project-tag">Google Business</span>
+                <span class="project-tag">Branding</span>
+                <span class="project-tag">Business Consultancy</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <hr class="project-divider" />
-
-      <p class="project-section-label">Areas of Work</p>
-      <div class="project-body">
-        <div>
-          <p class="project-text">
-            <strong style="color:var(--sand);">Business development</strong> — Defined growth targets, mapped what scaling would require, and identified short and long-term milestones.<br><br>
-            <strong style="color:var(--sand);">Branding</strong> — Developed brand guidelines covering tone, visuals, and storytelling. Aligned all touchpoints — website, social, and packaging — under a single identity.<br><br>
-            <strong style="color:var(--sand);">Community engagement</strong> — Planned pop-ups, cultural events, and partnerships to connect the brand with diaspora and local communities offline.
-          </p>
+      <!-- ─── CARD 3: BANGLADESH 1971 (full width) ─── -->
+      <div class="project-card project-card--full">
+        <div class="project-visual project-visual--olive">
+          <span class="project-visual-badge">B2C · Fashion E-Commerce</span>
+          <span class="project-visual-mono">B71</span>
         </div>
-        <div>
-          <p class="project-text">
-            <strong style="color:var(--sand);">Marketing & UX</strong> — Reviewed the Shopify site experience, refreshed Instagram content strategy, and created a 3-month content plan aligned to brand values.<br><br>
-            <strong style="color:var(--sand);">Supply chain</strong> — Built a supplier tracker, evaluated partners against quality and reliability criteria, and strengthened relationships with suppliers in Bangladesh.
-          </p>
+        <div class="project-summary">
+          <div>
+            <h2 class="project-client">Bangladesh 1971</h2>
+            <p class="project-teaser">Brand strategy and growth roadmap for a culturally rooted fashion label</p>
+          </div>
+          <div class="project-summary-footer">
+            <div class="project-preview-tags">
+              <span class="project-tag">Brand Strategy</span>
+              <span class="project-tag">Shopify</span>
+              <span class="project-tag">Workshop Facilitation</span>
+            </div>
+            <button class="expand-btn" aria-label="View case study">
+              <svg viewBox="0 0 16 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 5h14M10 1l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="project-details-wrapper">
+          <div class="project-details-inner">
+            <div class="project-details">
+              <hr class="project-divider" />
+              <div class="project-body">
+                <div>
+                  <p class="project-section-label">The Problem</p>
+                  <p class="project-text">A growing fashion e-commerce brand with strong community roots, but the founder lacked the capacity and strategic know-how to scale. The brand needed clearer positioning, a stronger digital presence, and a structured roadmap to grow sustainably.</p>
+                </div>
+                <div>
+                  <p class="project-section-label">What I Did</p>
+                  <p class="project-text">Ran discovery workshops to define the brand's identity, audience, values, and goals. Analysed Shopify data to identify drop-off points and redesign key aspects of the website and purchase journey. Built a strategic roadmap across five areas: business development, branding, community engagement, marketing & UX, and supply chain.</p>
+                </div>
+              </div>
+              <p class="project-section-label">Areas of Work</p>
+              <div class="project-body">
+                <div>
+                  <p class="project-text">
+                    <strong style="color:var(--sand);">Business development</strong> — Defined growth targets, mapped what scaling would require, and identified short and long-term milestones.<br><br>
+                    <strong style="color:var(--sand);">Branding</strong> — Developed brand guidelines covering tone, visuals, and storytelling. Aligned all touchpoints — website, social, and packaging — under a single identity.<br><br>
+                    <strong style="color:var(--sand);">Community engagement</strong> — Planned pop-ups, cultural events, and partnerships to connect the brand with diaspora and local communities offline.
+                  </p>
+                </div>
+                <div>
+                  <p class="project-text">
+                    <strong style="color:var(--sand);">Marketing & UX</strong> — Reviewed the Shopify site experience, refreshed Instagram content strategy, and created a 3-month content plan aligned to brand values.<br><br>
+                    <strong style="color:var(--sand);">Supply chain</strong> — Built a supplier tracker, evaluated partners against quality and reliability criteria, and strengthened relationships with suppliers in Bangladesh.
+                  </p>
+                </div>
+              </div>
+              <div class="project-outcome">
+                <p class="project-outcome-label">Outcome</p>
+                <p>A more compelling and consistent social media presence, increased website traffic, a clearer brand identity, and a stronger supply chain foundation — giving the founder a clear path to scale.</p>
+              </div>
+              <div class="project-tags-full">
+                <span class="project-tag">Brand Strategy</span>
+                <span class="project-tag">Shopify</span>
+                <span class="project-tag">Workshop Facilitation</span>
+                <span class="project-tag">E-Commerce</span>
+                <span class="project-tag">Supply Chain</span>
+                <span class="project-tag">Content Strategy</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="project-outcome">
-        <p class="project-outcome-label">Outcome</p>
-        <p>A more compelling and consistent social media presence, increased website traffic, a clearer brand identity, and a stronger supply chain foundation — giving the founder a clear path to scale.</p>
-      </div>
-
-      <div class="project-tags">
-        <span class="project-tag">Brand Strategy</span>
-        <span class="project-tag">Shopify</span>
-        <span class="project-tag">Workshop Facilitation</span>
-        <span class="project-tag">E-Commerce</span>
-        <span class="project-tag">Supply Chain</span>
-        <span class="project-tag">Content Strategy</span>
-      </div>
-    </div>
+    </div><!-- /projects-grid -->
 
     <footer>
       <span class="foot-copy">© 2026 Kahar Hussain</span>
@@ -462,40 +603,42 @@
   </div>
 
   <script>
+    /* ── Theme ── */
     const html   = document.documentElement;
     const toggle = document.getElementById('themeToggle');
-
-    if (localStorage.getItem('theme') === 'dark') {
-      html.setAttribute('data-theme', 'dark');
-    }
-
+    if (localStorage.getItem('theme') === 'dark') html.setAttribute('data-theme', 'dark');
     toggle.addEventListener('click', () => {
       const isDark = html.getAttribute('data-theme') === 'dark';
       html.setAttribute('data-theme', isDark ? 'light' : 'dark');
       localStorage.setItem('theme', isDark ? 'light' : 'dark');
     });
 
+    /* ── Hamburger ── */
     const hamburgerBtn = document.getElementById('hamburgerBtn');
     const mobileMenu   = document.getElementById('mobileMenu');
-
-    hamburgerBtn.addEventListener('click', (e) => {
+    hamburgerBtn.addEventListener('click', e => {
       e.stopPropagation();
       hamburgerBtn.classList.toggle('open');
       mobileMenu.classList.toggle('open');
     });
-
-    mobileMenu.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => {
-        hamburgerBtn.classList.remove('open');
-        mobileMenu.classList.remove('open');
-      });
-    });
-
-    document.addEventListener('click', (e) => {
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      hamburgerBtn.classList.remove('open');
+      mobileMenu.classList.remove('open');
+    }));
+    document.addEventListener('click', e => {
       if (!hamburgerBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
         hamburgerBtn.classList.remove('open');
         mobileMenu.classList.remove('open');
       }
+    });
+
+    /* ── Card expand / collapse ── */
+    document.querySelectorAll('.project-card').forEach(card => {
+      card.addEventListener('click', e => {
+        // Don't toggle when clicking inside the expanded details area
+        if (e.target.closest('.project-details-wrapper')) return;
+        card.classList.toggle('expanded');
+      });
     });
   </script>
 
