@@ -716,7 +716,7 @@
     const html   = document.documentElement;
     const toggle = document.getElementById('themeToggle');
 
-    if (localStorage.getItem('theme') === 'dark') {
+    if (localStorage.getItem('theme') !== 'light') {
       html.setAttribute('data-theme', 'dark');
     }
 
