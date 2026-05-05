@@ -330,6 +330,9 @@
       padding: 18px 20px;
       transition: background 0.14s;
       cursor: default;
+      text-decoration: none;
+      display: block;
+      color: inherit;
     }
 
     .case-item:hover { background: rgba(232, 216, 190, 0.09); }
@@ -751,8 +754,8 @@
       <div class="hero-content">
         <div>
           <div class="hero-tag">Available for projects</div>
-          <h1 class="hero-name">KAHAR<br><span>LExen</span></h1>
-          <p class="hero-bio">I help businesses understand their users, fix what's broken, and design and build journeys that convert across websites, products, and brand touchpoints.</p>
+          <h1 class="hero-name">KAHAR<br><span>HUSSAIN</span></h1>
+          <p class="hero-bio">I turn complex, fragmented customer experiences into clear, structured journeys that teams can actually act on.</p>
         </div>
         <div class="hero-stats">
           <div class="stat">
@@ -780,7 +783,7 @@
       <h2 class="work-heading">What I've shipped</h2>
       <div class="cases">
 
-        <div class="case-item fade-in">
+        <a class="case-item fade-in" href="access-control.html">
           <div class="case-item-inner">
             <div>
               <p class="case-tag">Enterprise SaaS</p>
@@ -792,9 +795,9 @@
               <p style="font-size:10px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:rgba(232,216,190,0.45);margin-top:4px;">Annual Revenue Unlocked</p>
             </div>
           </div>
-        </div>
+        </a>
 
-        <div class="case-item fade-in">
+        <a class="case-item fade-in" href="nhs-comms.html">
           <div class="case-item-inner">
             <div>
               <p class="case-tag">NHS</p>
@@ -806,9 +809,9 @@
               <p style="font-size:10px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:rgba(232,216,190,0.45);margin-top:4px;">Notification Opt-ins</p>
             </div>
           </div>
-        </div>
+        </a>
 
-        <div class="case-item fade-in">
+        <a class="case-item fade-in" href="market-proposition.html">
           <div class="case-item-inner">
             <div>
               <p class="case-tag">B2B Platform</p>
@@ -820,9 +823,9 @@
               <p style="font-size:10px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:rgba(232,216,190,0.45);margin-top:4px;">ARR Secured</p>
             </div>
           </div>
-        </div>
+        </a>
 
-        <div class="case-item fade-in">
+        <a class="case-item fade-in" href="ai-voice.html">
           <div class="case-item-inner">
             <div>
               <p class="case-tag">AI Product</p>
@@ -834,7 +837,7 @@
               <p style="font-size:10px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:rgba(232,216,190,0.45);margin-top:4px;">Cost to Serve Reduction</p>
             </div>
           </div>
-        </div>
+        </a>
 
       </div>
     </div>
@@ -988,7 +991,7 @@
     (function() {
       const nameEl = document.querySelector('.hero-name');
       const line1 = 'KAHAR';
-      const line2 = 'LExen';
+      const line2 = 'HUSSAIN';
       let phase = 1, charIndex = 0;
 
       function render() {

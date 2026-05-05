@@ -49,7 +49,7 @@
     .case-hero-inner { position: relative; z-index: 1; padding: 36px 44px; width: 100%; }
     .case-back { font-size: 12px; font-weight: 600; letter-spacing: 0.04em; color: rgba(232,216,190,0.50); text-decoration: none; display: inline-flex; align-items: center; gap: 5px; margin-bottom: 22px; transition: color 0.18s; }
     .case-back:hover { color: var(--sand); }
-    .case-sector { font-size: 10px; font-weight: 700; letter-spacing: 0.10em; text-transform: uppercase; color: rgba(232,216,190,0.60); background: rgba(255,255,255,0.09); border: 1px solid rgba(255,255,255,0.15); border-radius: 50px; padding: 4px 12px; display: inline-block; margin-bottom: 12px; }
+    .case-sector { font-size: 10px; font-weight: 700; letter-spacing: 0.10em; text-transform: uppercase; color: rgba(232,216,190,0.90); background: rgba(18,28,36,0.72); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border: 1px solid rgba(232,216,190,0.20); border-radius: 50px; padding: 4px 12px; display: inline-block; margin-bottom: 12px; }
     .case-title { font-family: var(--font-display); font-weight: 900; font-size: clamp(34px,6vw,58px); color: var(--sand); letter-spacing: -0.02em; line-height: 1; margin-bottom: 10px; }
     .case-subtitle { font-size: 16px; color: rgba(232,216,190,0.55); line-height: 1.5; }
     .case-section { background: var(--card-surface); border-radius: var(--radius); padding: 36px 40px; transition: background 0.3s; }
@@ -140,7 +140,7 @@
 
   <div class="page">
 
-    <div class="case-hero" style="background: linear-gradient(135deg, #1c1a2e 0%, #2e2848 60%, #3a3060 100%);">
+    <div class="case-hero" style="background-image: url('AI 3.jpeg'); background-size: cover; background-position: center;">
       <div class="case-hero-inner">
         <a href="case-studies.html" class="case-back">← Case Studies</a>
         <div>
@@ -155,59 +155,58 @@
       <div class="case-2col">
         <div>
           <p class="case-label">The Problem</p>
-          <p class="case-body-text">Add your problem statement here.</p>
+          <p class="case-body-text">We were growing quickly across product, support, and AI, but our content was inconsistent and fragmented.<br><br>Without a shared voice, we risked confusing users, diluting our brand, and increasing support costs at scale.</p>
         </div>
         <div>
           <p class="case-label">What I Did</p>
-          <p class="case-body-text">Add your approach here.</p>
+          <p class="case-body-text">I partnered with product, design, support, and marketing to audit existing content, define a tone of voice grounded in our values, and build a UX writing framework covering voice, grammar, naming, and structural patterns.<br><br>I aligned AI-generated copy with our tone through testing and real prompts, and embedded the framework into design tools and day-to-day workflows as a self-serve Notion guide.</p>
         </div>
       </div>
     </div>
 
     <div class="case-img-row">
-      <div class="case-img-slot"><div class="img-placeholder"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><circle cx="8.5" cy="9.5" r="1.5" stroke="currentColor" stroke-width="1.5"/><path d="M3 16l5-5 4 4 3-3 3 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Add image</span></div></div>
-      <div class="case-img-slot"><div class="img-placeholder"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><circle cx="8.5" cy="9.5" r="1.5" stroke="currentColor" stroke-width="1.5"/><path d="M3 16l5-5 4 4 3-3 3 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Add image</span></div></div>
+      <div class="case-img-slot"><img src="AI 1.jpeg" alt="AI Voice framework 1"></div>
+      <div class="case-img-slot"><img src="AI 2.jpeg" alt="AI Voice framework 2"></div>
     </div>
 
     <div class="case-section">
       <p class="case-label">Key Findings</p>
       <div class="areas-list">
         <div class="area-item">
-          <div class="area-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
-          <div><p class="area-title">Finding 1</p><p class="area-text">Add your finding here.</p></div>
+          <div class="area-icon" style="font-size:18px;">📖</div>
+          <div><p class="area-title">Examples beat rules</p><p class="area-text">Teams adopted the framework faster when it showed real do and don't scenarios rather than abstract guidance.</p></div>
         </div>
         <div class="area-item">
-          <div class="area-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-          <div><p class="area-title">Finding 2</p><p class="area-text">Add your finding here.</p></div>
+          <div class="area-icon" style="font-size:18px;">✍️</div>
+          <div><p class="area-title">Consistency builds confidence</p><p class="area-text">Support teams wrote faster and clearer replies. Designers felt more confident tackling microcopy.</p></div>
         </div>
         <div class="area-item">
-          <div class="area-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
-          <div><p class="area-title">Finding 3</p><p class="area-text">Add your finding here.</p></div>
+          <div class="area-icon" style="font-size:18px;">🤖</div>
+          <div><p class="area-title">AI needs voice guidance too</p><p class="area-text">Without structure, AI copy drifted off-brand. With clear prompts and tone principles, it became a consistent extension of our voice.</p></div>
         </div>
         <div class="area-item">
-          <div class="area-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
-          <div><p class="area-title">Finding 4</p><p class="area-text">Add your finding here.</p></div>
+          <div class="area-icon" style="font-size:18px;">⚖️</div>
+          <div><p class="area-title">Structure without bloat</p><p class="area-text">Teams needed clarity, not a rulebook. Getting that balance right was the hardest part of the design process.</p></div>
         </div>
       </div>
     </div>
 
-    <div class="case-img-row">
-      <div class="case-img-slot"><div class="img-placeholder"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><circle cx="8.5" cy="9.5" r="1.5" stroke="currentColor" stroke-width="1.5"/><path d="M3 16l5-5 4 4 3-3 3 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Add image</span></div></div>
-      <div class="case-img-slot"><div class="img-placeholder"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><circle cx="8.5" cy="9.5" r="1.5" stroke="currentColor" stroke-width="1.5"/><path d="M3 16l5-5 4 4 3-3 3 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Add image</span></div></div>
+    <div class="case-img-slot" style="min-height:0;">
+      <img src="AI 3.jpeg" alt="AI Voice framework 3" style="width:100%;height:auto;object-fit:unset;">
     </div>
 
     <div class="case-section">
       <p class="case-label">Outcome</p>
       <div class="case-outcome-box">
-        <p>Add your outcome here.</p>
+        <p>Launched a clear, accessible tone of voice and content framework, improving communication across product, support, and AI.<br><br>Enabled faster content creation and more consistent experiences, reducing back-and-forth across teams.<br><br>Reduced support costs, contributing to a 15% drop in cost to serve and laying the groundwork for scalable content operations.</p>
       </div>
     </div>
 
     <div class="case-footer-row">
       <div class="case-tags">
-        <span class="project-tag">Discovery Research</span>
-        <span class="project-tag">Permissions & Roles</span>
-        <span class="project-tag">Enterprise UX</span>
+        <span class="project-tag">AI UX</span>
+        <span class="project-tag">Content Design</span>
+        <span class="project-tag">UX Framework</span>
       </div>
       <a href="case-studies.html" class="case-back-btn">← Back to Case Studies</a>
     </div>
