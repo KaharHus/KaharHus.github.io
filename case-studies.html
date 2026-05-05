@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Web & CRO — Kahar Hussain</title>
+  <title>Case Studies — Kahar Hussain</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700;900&family=Libre+Franklin:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&display=swap" rel="stylesheet" />
@@ -111,22 +111,22 @@
     }
 
     /* ── PAGE HEADER ── */
-    .cro-header {
+    .page-header {
       background: var(--hero-bg); border-radius: var(--radius);
       padding: 40px 40px 36px;
       border: 1px solid rgba(232, 216, 190, 0.08);
     }
-    .cro-header h1 {
+    .page-header h1 {
       font-family: var(--font-display); font-size: clamp(32px, 5vw, 48px);
       color: var(--sand); line-height: 0.95; letter-spacing: -0.01em; margin: 6px 0 12px;
     }
-    .cro-header h1 span { color: var(--ochre); }
-    .cro-header p { font-size: 15px; color: rgba(232, 216, 190, 0.6); line-height: 1.6; max-width: 560px; }
+    .page-header h1 span { color: var(--ochre); }
+    .page-header p { font-size: 15px; color: rgba(232, 216, 190, 0.6); line-height: 1.6; max-width: 560px; }
 
     /* ── PROJECTS GRID ── */
     .projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 
-    /* ── PROJECT CARD (link) ── */
+    /* ── PROJECT CARD ── */
     .project-card {
       display: block; text-decoration: none;
       background: var(--card-surface); border-radius: var(--radius); overflow: hidden;
@@ -148,12 +148,23 @@
       content: ''; position: absolute; inset: 0;
       background: linear-gradient(180deg, rgba(22,32,40,0.50) 0%, rgba(22,32,40,0.08) 60%, transparent 100%);
     }
+    .project-visual--gradient { background-size: cover; background-position: center; }
     .project-visual-badge {
       position: absolute; top: 20px; left: 22px;
       font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
       color: rgba(255,255,255,0.65);
       background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.18);
       border-radius: 50px; padding: 4px 12px;
+    }
+    .project-visual-metric {
+      position: absolute; bottom: 20px; right: 22px;
+      font-family: var(--font-display); font-size: 28px; font-weight: 900;
+      color: var(--ochre); letter-spacing: -0.02em; line-height: 1;
+    }
+    .project-visual-metric span {
+      display: block; font-family: var(--font-body); font-size: 10px;
+      font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase;
+      color: rgba(232,216,190,0.50); margin-top: 4px;
     }
 
     /* ── CARD SUMMARY ── */
@@ -215,11 +226,11 @@
     .mobile-menu a:hover { background: rgba(232, 216, 190, 0.12); }
 
     /* ── RESPONSIVE ── */
-    @media (min-width: 800px) { .cro-header { padding: 48px 52px; } }
+    @media (min-width: 800px) { .page-header { padding: 48px 52px; } }
     @media (max-width: 700px) {
       .projects-grid { grid-template-columns: 1fr; }
       .project-card--full { grid-column: auto; }
-      .cro-header { padding: 28px 24px; }
+      .page-header { padding: 28px 24px; }
       .project-visual { height: 200px; }
     }
     @media (max-width: 640px) {
@@ -239,8 +250,8 @@
     </a>
     <ul class="nav-links">
       <li><a href="index.html#work">Work</a></li>
-      <li><a href="case-studies.html">Case Studies</a></li>
-      <li><a href="cro.html" class="active">Web & CRO</a></li>
+      <li><a href="case-studies.html" class="active">Case Studies</a></li>
+      <li><a href="cro.html">Web & CRO</a></li>
       <li><a href="side.html">Side</a></li>
       <li><a href="index.html#testimonials">Praise</a></li>
       <li><a href="resume.html">Resume</a></li>
@@ -271,29 +282,30 @@
 
   <div class="page">
 
-    <div class="cro-header">
-      <p class="label">Web & CRO</p>
-      <h1>Websites that<br><span>convert</span></h1>
-      <p>Research-led projects focused on improving digital experiences, conversion rates, and brand presence for consumer businesses.</p>
+    <div class="page-header">
+      <p class="label">Case Studies</p>
+      <h1>Research that<br><span>drives results</span></h1>
+      <p>End-to-end case studies across enterprise software, health, and consumer products — from discovery through to measurable impact.</p>
     </div>
 
     <div class="projects-grid">
 
-      <!-- THE LITTLE LOOP -->
-      <a class="project-card" href="little-loop.html">
-        <div class="project-visual project-visual--photo" style="background-image: url('The Little Loop 3.jpeg')">
-          <span class="project-visual-badge">B2C · Sustainable Fashion</span>
+      <!-- ENTERPRISE SAAS -->
+      <a class="project-card" href="#">
+        <div class="project-visual project-visual--gradient" style="background: linear-gradient(135deg, #1a3040 0%, #2D4A54 60%, #3a5a40 100%);">
+          <span class="project-visual-badge">Enterprise SaaS</span>
+          <div class="project-visual-metric">$500K+<span>Annual Revenue Unlocked</span></div>
         </div>
         <div class="project-summary">
           <div>
-            <h2 class="project-client">The Little Loop</h2>
-            <p class="project-teaser">Converting Dragons' Den traffic into subscribers</p>
+            <h2 class="project-client">Access Control Research</h2>
+            <p class="project-teaser">Unlocking revenue through permissions design</p>
           </div>
           <div class="project-summary-footer">
             <div class="project-preview-tags">
-              <span class="project-tag">UX Audit</span>
-              <span class="project-tag">Usability Testing</span>
-              <span class="project-tag">Website Redesign</span>
+              <span class="project-tag">Discovery Research</span>
+              <span class="project-tag">Permissions & Roles</span>
+              <span class="project-tag">Enterprise UX</span>
             </div>
             <span class="expand-btn">
               <svg viewBox="0 0 16 10" fill="none"><path d="M1 5h14M10 1l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -302,21 +314,22 @@
         </div>
       </a>
 
-      <!-- OPTIMAL MASSAGE -->
-      <a class="project-card" href="optimal-massage.html">
-        <div class="project-visual project-visual--photo" style="background-image: url('Optimal Massage.jpeg')">
-          <span class="project-visual-badge">B2C · Massage Therapy</span>
+      <!-- NHS -->
+      <a class="project-card" href="#">
+        <div class="project-visual project-visual--gradient" style="background: linear-gradient(135deg, #162838 0%, #1e3a50 60%, #2a4060 100%);">
+          <span class="project-visual-badge">NHS · Public Health</span>
+          <div class="project-visual-metric">+25%<span>Communication Clarity</span></div>
         </div>
         <div class="project-summary">
           <div>
-            <h2 class="project-client">Optimal Massage</h2>
-            <p class="project-teaser">Building a stronger local presence and better website</p>
+            <h2 class="project-client">NHS Communications</h2>
+            <p class="project-teaser">Improving comms for 33M+ users</p>
           </div>
           <div class="project-summary-footer">
             <div class="project-preview-tags">
-              <span class="project-tag">Website Design</span>
-              <span class="project-tag">Local SEO</span>
-              <span class="project-tag">Conversion</span>
+              <span class="project-tag">Content Strategy</span>
+              <span class="project-tag">UX Research</span>
+              <span class="project-tag">Service Design</span>
             </div>
             <span class="expand-btn">
               <svg viewBox="0 0 16 10" fill="none"><path d="M1 5h14M10 1l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -325,21 +338,46 @@
         </div>
       </a>
 
-      <!-- BANGLADESH 1971 -->
-      <a class="project-card project-card--full" href="bangladesh-1971.html">
-        <div class="project-visual project-visual--photo" style="background-image: url('Bangladesh 1971.jpg')">
-          <span class="project-visual-badge">B2C · Fashion E-Commerce</span>
+      <!-- B2B PLATFORM -->
+      <a class="project-card" href="#">
+        <div class="project-visual project-visual--gradient" style="background: linear-gradient(135deg, #2a1e10 0%, #4a3018 60%, #6a4020 100%);">
+          <span class="project-visual-badge">B2B Platform</span>
+          <div class="project-visual-metric">$1M+<span>Recurring Revenue Secured</span></div>
         </div>
         <div class="project-summary">
           <div>
-            <h2 class="project-client">Bangladesh 1971</h2>
-            <p class="project-teaser">Brand strategy and growth roadmap for a culturally rooted fashion label</p>
+            <h2 class="project-client">Market Proposition</h2>
+            <p class="project-teaser">Finding a new product direction</p>
           </div>
           <div class="project-summary-footer">
             <div class="project-preview-tags">
-              <span class="project-tag">Brand Strategy</span>
-              <span class="project-tag">Shopify</span>
-              <span class="project-tag">Marketing</span>
+              <span class="project-tag">Discovery</span>
+              <span class="project-tag">Jobs-to-be-Done</span>
+              <span class="project-tag">Product Strategy</span>
+            </div>
+            <span class="expand-btn">
+              <svg viewBox="0 0 16 10" fill="none"><path d="M1 5h14M10 1l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+        </div>
+      </a>
+
+      <!-- AI PRODUCT -->
+      <a class="project-card" href="#">
+        <div class="project-visual project-visual--gradient" style="background: linear-gradient(135deg, #1c1a2e 0%, #2e2848 60%, #3a3060 100%);">
+          <span class="project-visual-badge">AI Product</span>
+          <div class="project-visual-metric">−15%<span>Support Contacts</span></div>
+        </div>
+        <div class="project-summary">
+          <div>
+            <h2 class="project-client">AI Voice & UX Framework</h2>
+            <p class="project-teaser">Aligning voice across product, support, and AI</p>
+          </div>
+          <div class="project-summary-footer">
+            <div class="project-preview-tags">
+              <span class="project-tag">AI UX</span>
+              <span class="project-tag">Content Design</span>
+              <span class="project-tag">UX Framework</span>
             </div>
             <span class="expand-btn">
               <svg viewBox="0 0 16 10" fill="none"><path d="M1 5h14M10 1l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
