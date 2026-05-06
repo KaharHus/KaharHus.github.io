@@ -99,6 +99,7 @@
       color: var(--sand);
       letter-spacing: -0.01em;
       line-height: 1.2;
+      white-space: nowrap;
     }
 
     .nav-sub {
@@ -106,7 +107,7 @@
       color: rgba(232, 216, 190, 0.55);
     }
 
-    .nav-links { display: flex; gap: 4px; list-style: none; }
+    .nav-links { display: flex; gap: 4px; list-style: none; align-items: center; }
 
     .nav-links a {
       font-size: 13px;
@@ -116,6 +117,7 @@
       padding: 6px 12px;
       border-radius: 50px;
       transition: background 0.18s, color 0.18s;
+      white-space: nowrap;
     }
 
     .nav-links a:hover {
@@ -609,6 +611,10 @@
       transition: background 0.2s;
     }
     .mobile-menu a:hover { background: rgba(232, 216, 190, 0.12); }
+
+    @media (max-width: 720px) {
+      .nav-sub { display: none; }
+    }
 
     @media (max-width: 560px) {
       .hero-card { grid-template-columns: 1fr; min-height: auto; }
