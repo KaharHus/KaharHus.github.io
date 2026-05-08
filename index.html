@@ -434,7 +434,22 @@
     }
 
     /* ── CONTACT CARD ── */
-    .contact-card { padding: 36px; }
+    .contact-card {
+      padding: 36px;
+      position: relative;
+      overflow: hidden;
+    }
+    .contact-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url('imagery-2.jpg');
+      background-size: cover;
+      background-position: center 30%;
+      opacity: 0.18;
+      z-index: 0;
+    }
+    .contact-card > * { position: relative; z-index: 1; }
 
     .contact-heading {
       font-family: var(--font-display);
