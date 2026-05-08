@@ -124,7 +124,20 @@
       background: var(--hero-bg); border-radius: var(--radius);
       padding: 40px 40px 36px;
       border: 1px solid rgba(232, 216, 190, 0.08);
+      position: relative;
+      overflow: hidden;
     }
+    .side-header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url('imagery-1.jpg');
+      background-size: cover;
+      background-position: center 40%;
+      opacity: 0.22;
+      z-index: 0;
+    }
+    .side-header > * { position: relative; z-index: 1; }
 
     .side-header h1 {
       font-family: var(--font-display);
