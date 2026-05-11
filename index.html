@@ -783,15 +783,15 @@
         </div>
         <div class="hero-stats">
           <div class="stat">
-            <span class="stat-num" data-target="9" data-suffix="+">9<span style="margin-left:0.2em">+</span></span>
+            <span class="stat-num" data-target="9" data-suffix="+">9<span style="margin-left:0.12em">+</span></span>
             <span class="stat-label">Years experience</span>
           </div>
           <div class="stat">
-            <span class="stat-num" data-target="20" data-suffix="+">20<span style="margin-left:0.2em">+</span></span>
+            <span class="stat-num" data-target="20" data-suffix="+">20<span style="margin-left:0.12em">+</span></span>
             <span class="stat-label">Products launched</span>
           </div>
           <div class="stat">
-            <span class="stat-num" data-target="33" data-unit="m" data-suffix="+">33m<span style="margin-left:0.2em">+</span></span>
+            <span class="stat-num" data-target="33" data-unit="m" data-suffix="+">33m<span style="margin-left:0.12em">+</span></span>
             <span class="stat-label">Users impacted</span>
           </div>
         </div>
@@ -1071,7 +1071,7 @@
         function tick(now) {
           const progress = Math.min((now - start) / duration, 1);
           const eased = 1 - Math.pow(1 - progress, 3);
-          el.innerHTML = Math.round(eased * target) + unit + '<span style="margin-left:0.2em">' + suffix + '</span>';
+          el.innerHTML = Math.round(eased * target) + unit + '<span style="margin-left:0.12em">' + suffix + '</span>';
           if (progress < 1) requestAnimationFrame(tick);
         }
         requestAnimationFrame(tick);
