@@ -654,7 +654,10 @@
       gap: 20px;
       transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
       will-change: transform;
+      cursor: grab;
+      user-select: none;
     }
+    .carousel-track.dragging { cursor: grabbing; transition: none; }
     .tcard {
       flex: 0 0 320px;
       background: rgba(255,255,255,0.04);
@@ -674,7 +677,9 @@
       font-weight: 700;
       color: var(--sand);
       flex-shrink: 0;
+      overflow: hidden;
     }
+    .tcard-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .tcard-name { font-size: 17px; font-weight: 600; color: var(--sand); margin-bottom: 6px; }
     .tcard-role { font-size: 13px; color: var(--ochre); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 0; }
     .tcard-quote { font-size: 14px; line-height: 1.7; color: rgba(232,216,190,0.7); }
@@ -778,15 +783,15 @@
         </div>
         <div class="hero-stats">
           <div class="stat">
-            <span class="stat-num" data-target="9" data-suffix="+">9+</span>
+            <span class="stat-num" data-target="9" data-suffix="+">9<span style="margin-left:0.12em">+</span></span>
             <span class="stat-label">Years experience</span>
           </div>
           <div class="stat">
-            <span class="stat-num" data-target="20" data-suffix="+">20+</span>
+            <span class="stat-num" data-target="20" data-suffix="+">20<span style="margin-left:0.12em">+</span></span>
             <span class="stat-label">Products launched</span>
           </div>
           <div class="stat">
-            <span class="stat-num" data-target="33" data-suffix="m+">33m+</span>
+            <span class="stat-num" data-target="33" data-unit="m" data-suffix="+">33m<span style="margin-left:0.12em">+</span></span>
             <span class="stat-label">Users impacted</span>
           </div>
         </div>
@@ -870,7 +875,7 @@
         <div class="carousel-track" id="carouselTrack">
 
           <div class="tcard">
-            <div class="tcard-avatar" style="background:linear-gradient(135deg,#c1440e,#e07a3a);">XG</div>
+            <div class="tcard-avatar"><img src="Xander-Gilbert.jpg" alt="Xander Gilbert"></div>
             <div>
               <p class="tcard-name">Xander Gilbert</p>
               <p class="tcard-role">Co-founder at Mojo</p>
@@ -879,7 +884,7 @@
           </div>
 
           <div class="tcard">
-            <div class="tcard-avatar" style="background:linear-gradient(135deg,#2D4A54,#4a7a8a);">BS</div>
+            <div class="tcard-avatar"><img src="Bronagh Smyth.jpeg" alt="Bronagh Smyth"></div>
             <div>
               <p class="tcard-name">Bronagh Smyth</p>
               <p class="tcard-role">User Research Lead at Kainos</p>
@@ -888,7 +893,7 @@
           </div>
 
           <div class="tcard">
-            <div class="tcard-avatar" style="background:linear-gradient(135deg,#5a6e3a,#8aaa4a);">ML</div>
+            <div class="tcard-avatar"><img src="Matt Leary.jpeg" alt="Matt Leary"></div>
             <div>
               <p class="tcard-name">Matt Leary</p>
               <p class="tcard-role">Product Manager at Department for Education</p>
@@ -897,7 +902,7 @@
           </div>
 
           <div class="tcard">
-            <div class="tcard-avatar" style="background:linear-gradient(135deg,#b8860b,#d4a82a);">KR</div>
+            <div class="tcard-avatar"><img src="Kendel.jpeg" alt="Kendel Rupert"></div>
             <div>
               <p class="tcard-name">Kendel Rupert</p>
               <p class="tcard-role">Marketing Lead at Altruistiq</p>
@@ -906,7 +911,7 @@
           </div>
 
           <div class="tcard">
-            <div class="tcard-avatar" style="background:linear-gradient(135deg,#6b3a6b,#9a5a9a);">PB</div>
+            <div class="tcard-avatar"><img src="Patricia Barbosa.jpeg" alt="Patricia Barbosa"></div>
             <div>
               <p class="tcard-name">Patricia Barbosa</p>
               <p class="tcard-role">Head of Design at Altruistiq</p>
@@ -915,7 +920,7 @@
           </div>
 
           <div class="tcard">
-            <div class="tcard-avatar" style="background:linear-gradient(135deg,#1a3a2a,#2d6a4a);">MR</div>
+            <div class="tcard-avatar"><img src="Mahian.webp" alt="Mahian Rab" style="object-position: center top;"></div>
             <div>
               <p class="tcard-name">Mahian Rab</p>
               <p class="tcard-role">Founder at Pushpa</p>
@@ -1059,13 +1064,14 @@
         if (!entry.isIntersecting) return;
         const el = entry.target;
         const target = parseInt(el.dataset.target);
+        const unit = el.dataset.unit || '';
         const suffix = el.dataset.suffix;
         const duration = 1400;
         const start = performance.now();
         function tick(now) {
           const progress = Math.min((now - start) / duration, 1);
           const eased = 1 - Math.pow(1 - progress, 3);
-          el.textContent = Math.round(eased * target) + suffix;
+          el.innerHTML = Math.round(eased * target) + unit + '<span style="margin-left:0.12em">' + suffix + '</span>';
           if (progress < 1) requestAnimationFrame(tick);
         }
         requestAnimationFrame(tick);
@@ -1111,6 +1117,33 @@
       // Pause on hover
       track.parentElement.addEventListener('mouseenter', () => clearInterval(timer));
       track.parentElement.addEventListener('mouseleave', resetTimer);
+
+      // Drag / swipe
+      let dragStartX = null, isDragging = false;
+      const THRESHOLD = 50;
+
+      function dragStart(x) {
+        dragStartX = x;
+        isDragging = true;
+        track.classList.add('dragging');
+        clearInterval(timer);
+      }
+
+      function dragEnd(x) {
+        if (!isDragging) return;
+        isDragging = false;
+        track.classList.remove('dragging');
+        const delta = dragStartX - x;
+        if (Math.abs(delta) > THRESHOLD) delta > 0 ? goTo(current + 1) : goTo(current - 1);
+        resetTimer();
+        dragStartX = null;
+      }
+
+      track.addEventListener('mousedown', e => dragStart(e.clientX));
+      window.addEventListener('mouseup', e => { if (isDragging) dragEnd(e.clientX); });
+      track.addEventListener('mousemove', e => { if (isDragging) e.preventDefault(); });
+      track.addEventListener('touchstart', e => dragStart(e.touches[0].clientX), { passive: true });
+      track.addEventListener('touchend', e => dragEnd(e.changedTouches[0].clientX));
 
       resetTimer();
     })();
