@@ -164,12 +164,12 @@
     .hero-name span { color: var(--ochre); }
 
     .hero-bio {
-      font-size: 22px;
+      font-size: clamp(28px, 3.2vw, 44px);
       color: rgba(232, 216, 190, 0.58);
-      line-height: 1.65;
+      line-height: 1.5;
       margin-top: 28px;
       font-weight: 300;
-      max-width: 440px;
+      max-width: 480px;
     }
 
     .hero-stats { display: flex; gap: 10px; margin-top: 36px; flex-wrap: wrap; }
@@ -375,7 +375,7 @@
       .hero-card { grid-template-columns: 1fr; min-height: auto; }
       .hero-photo { height: 280px; order: -1; }
       .hero-content { padding: 28px 24px; }
-      .hero-bio { font-size: 18px; }
+      .hero-bio { font-size: 22px; line-height: 1.6; }
       .hero-stats { gap: 8px; }
       .stat { padding: 12px 16px; }
       .stat-num { font-size: 28px; }
