@@ -11,7 +11,7 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
       --terra: #B5442A; --sand: #ECECDC; --olive: #5B6234;
-      --ochre: #C8902A; --clay: #A85C3A; --sea: #351E1C;
+      --ochre: #A0C9CB; --mauve: #C4A8B8; --clay: #A85C3A; --sea: #351E1C;
       --sea-dark: #2A1614; --sea-mid: #354F5A;
       --border: rgba(245,244,237,0.18); --max-w: 1200px; --radius: 20px;
       --font-body: 'Libre Franklin', system-ui, sans-serif;
@@ -79,8 +79,24 @@
     .area-text { font-size: 13px; line-height: 1.65; color: rgba(245,244,237,0.58); }
 
     /* OUTCOME */
-    .case-outcome-box { background: rgba(160,201,203,0.07); border: 1px solid rgba(160,201,203,0.18); border-radius: 16px; padding: 24px 28px; }
+    .case-outcome-box { background: rgba(160,201,203,0.07); border: 1px solid rgba(160,201,203,0.18); border-left: 3px solid var(--ochre); border-radius: 16px; padding: 24px 28px; }
     .case-outcome-box p { font-size: 15px; line-height: 1.72; color: rgba(245,244,237,0.80); }
+    /* ── PULL QUOTE ── */
+    .pull-quote { border-radius: var(--radius); padding: 36px 40px; background: rgba(196,168,184,0.05); border: 1px solid rgba(196,168,184,0.14); border-left: 3px solid var(--mauve); position: relative; overflow: hidden; }
+    .pull-quote::before { content: '\201C'; position: absolute; top: -10px; right: 24px; font-family: Georgia, serif; font-size: 120px; line-height: 1; color: rgba(196,168,184,0.08); pointer-events: none; }
+    .pull-quote-text { font-family: var(--font-display); font-size: clamp(18px, 2.8vw, 26px); font-weight: 700; font-style: italic; color: var(--sand); line-height: 1.35; letter-spacing: -0.01em; }
+    .pull-quote-text em { font-style: normal; color: var(--mauve); }
+    .pull-quote-attr { margin-top: 14px; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(245,244,237,0.30); }
+    /* ── STAT BREAK ── */
+    .stat-break { border-radius: var(--radius); background: var(--card-surface); border: 1px solid rgba(160,201,203,0.12); padding: 48px 36px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; position: relative; overflow: hidden; gap: 6px; }
+    .stat-break::before { content: ''; position: absolute; width: 320px; height: 320px; border-radius: 50%; background: radial-gradient(circle, rgba(160,201,203,0.10) 0%, transparent 65%); top: 50%; left: 50%; transform: translate(-50%,-50%); pointer-events: none; }
+    .stat-break-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ochre); position: relative; z-index: 2; }
+    .stat-break-number { font-family: var(--font-display); font-size: clamp(64px, 12vw, 104px); font-weight: 900; letter-spacing: -0.03em; line-height: 0.90; color: var(--sand); position: relative; z-index: 2; }
+    .stat-break-label { font-size: 13px; font-weight: 600; letter-spacing: 0.10em; text-transform: uppercase; color: rgba(245,244,237,0.38); position: relative; z-index: 2; margin-top: 4px; }
+    .stat-break-sub { font-size: 13px; font-weight: 300; color: rgba(245,244,237,0.40); max-width: 420px; line-height: 1.6; position: relative; z-index: 2; margin-top: 12px; }
+    /* ── SECTION DIVIDER ── */
+    .section-divider { display: flex; align-items: center; gap: 12px; padding: 4px 0; color: rgba(245,244,237,0.18); font-size: 10px; font-weight: 600; letter-spacing: 0.10em; text-transform: uppercase; }
+    .section-divider::before, .section-divider::after { content: ''; flex: 1; height: 1px; background: rgba(245,244,237,0.08); }
 
     /* FOOTER ROW */
     .case-footer-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
@@ -273,6 +289,13 @@
         </div>
 
       </div>
+
+    <div class="section-divider">Key insight</div>
+    <div class="pull-quote">
+      <p class="pull-quote-text">"The brand needed to build <em>loyalty beyond transactions</em> — with diaspora and local communities who expected to be seen."</p>
+      <p class="pull-quote-attr">Key Insight · Bangladesh 1971</p>
+    </div>
+
     </div>
 
     <!-- IMAGE ROW 2 -->
@@ -285,6 +308,8 @@
       </div>
     </div>
 
+
+    <div class="section-divider">Outcome</div>
     <!-- OUTCOME -->
     <div class="case-section">
       <p class="case-label">Outcome</p>
