@@ -11,41 +11,41 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --terra:     #B5442A;
-      --sand:      #E8D8BE;
-      --olive:     #5B6234;
-      --ochre:     #C8902A;
-      --clay:      #A85C3A;
-      --sea:       #2D4A54;
-      --sea-dark:  #223840;
-      --sea-mid:   #354F5A;
+      --terra:     #733635;
+      --sand:      #F5F4ED;
+      --olive:     #733635;
+      --ochre:     #A0C9CB;
+      --clay:      #5E2A28;
+      --sea:       #351E1C;
+      --sea-dark:  #2A1614;
+      --sea-mid:   #4A2422;
       --card-bg:   var(--sea);
-      --border:    rgba(232, 216, 190, 0.18);
+      --border:    rgba(245, 244, 237, 0.18);
       --max-w:     1200px;
       --radius:    20px;
       --font-body:    'Libre Franklin', system-ui, sans-serif;
       --font-display: 'Lato', sans-serif;
 
-      --bg:          linear-gradient(160deg, #efe1c8 0%, #E8D8BE 55%, #e0d0ae 100%);
+      --bg:          linear-gradient(160deg, #F5F4ED 0%, #ECECDC 55%, #E8E6D8 100%);
       --body-color:  var(--sea);
-      --nav-bg:      rgba(45, 74, 84, 0.92);
-      --nav-border:  rgba(45, 74, 84, 0.10);
-      --hero-bg:     linear-gradient(135deg, rgba(34, 56, 64, 0.88) 0%, rgba(45, 74, 84, 0.88) 100%);
+      --nav-bg:      rgba(53, 30, 28, 0.92);
+      --nav-border:  rgba(53, 30, 28, 0.10);
+      --hero-bg:     linear-gradient(135deg, rgba(42, 22, 20, 0.88) 0%, rgba(53, 30, 28, 0.88) 100%);
       --card-surface: var(--sea);
-      --foot-color:  rgba(45, 74, 84, 0.50);
-      --foot-link:   rgba(45, 74, 84, 0.55);
+      --foot-color:  rgba(53, 30, 28, 0.50);
+      --foot-link:   rgba(53, 30, 28, 0.55);
       --foot-hover:  var(--sea);
     }
 
     [data-theme="dark"] {
-      --bg:          linear-gradient(160deg, #162028 0%, #1d2e38 55%, #182530 100%);
+      --bg:          linear-gradient(160deg, #1E1010 0%, #2A1614 55%, #1A0E0C 100%);
       --body-color:  var(--sand);
-      --nav-bg:      rgba(22, 32, 40, 0.95);
-      --nav-border:  rgba(232, 216, 190, 0.08);
-      --hero-bg:     linear-gradient(135deg, #223840 0%, #2D4A54 100%);
-      --card-surface: #243844;
-      --foot-color:  rgba(232, 216, 190, 0.40);
-      --foot-link:   rgba(232, 216, 190, 0.55);
+      --nav-bg:      rgba(30, 16, 14, 0.95);
+      --nav-border:  rgba(245, 244, 237, 0.08);
+      --hero-bg:     linear-gradient(135deg, #2A1614 0%, #351E1C 100%);
+      --card-surface: #3D201E;
+      --foot-color:  rgba(245, 244, 237, 0.40);
+      --foot-link:   rgba(245, 244, 237, 0.55);
       --foot-hover:  var(--sand);
     }
 
@@ -75,14 +75,14 @@
 
     .nav-brand { display: flex; flex-direction: column; gap: 1px; text-decoration: none; }
     .nav-name { font-size: 14px; font-weight: 600; color: var(--sand); letter-spacing: -0.01em; line-height: 1.2; }
-    .nav-sub { font-size: 11px; color: rgba(232, 216, 190, 0.55); }
+    .nav-sub { font-size: 11px; color: rgba(245, 244, 237, 0.55); }
     .nav-links { display: flex; gap: 4px; list-style: none; }
     .nav-links a {
-      font-size: 13px; font-weight: 500; color: rgba(232, 216, 190, 0.65);
+      font-size: 13px; font-weight: 500; color: rgba(245, 244, 237, 0.65);
       text-decoration: none; padding: 6px 12px; border-radius: 50px;
       transition: background 0.18s, color 0.18s;
     }
-    .nav-links a:hover, .nav-links a.active { background: rgba(232, 216, 190, 0.12); color: var(--sand); }
+    .nav-links a:hover, .nav-links a.active { background: rgba(245, 244, 237, 0.12); color: var(--sand); }
     .nav-cta {
       font-family: var(--font-body); font-size: 13px; font-weight: 600;
       color: var(--sea); background: var(--sand); border: none; border-radius: 50px;
@@ -93,12 +93,12 @@
 
     /* ── THEME TOGGLE ── */
     .theme-toggle {
-      background: rgba(232, 216, 190, 0.12); border: 1px solid rgba(232, 216, 190, 0.20);
+      background: rgba(245, 244, 237, 0.12); border: 1px solid rgba(245, 244, 237, 0.20);
       border-radius: 50%; width: 34px; height: 34px; cursor: pointer;
       display: flex; align-items: center; justify-content: center;
       color: var(--sand); flex-shrink: 0; transition: background 0.18s; margin-right: 4px;
     }
-    .theme-toggle:hover { background: rgba(232, 216, 190, 0.22); }
+    .theme-toggle:hover { background: rgba(245, 244, 237, 0.22); }
     .theme-toggle svg { width: 15px; height: 15px; fill: currentColor; }
     .icon-moon { display: block; }
     .icon-sun  { display: none; }
@@ -123,7 +123,7 @@
     .side-header {
       background: var(--hero-bg); border-radius: var(--radius);
       padding: 40px 40px 36px;
-      border: 1px solid rgba(232, 216, 190, 0.08);
+      border: 1px solid rgba(245, 244, 237, 0.08);
       position: relative;
       overflow: hidden;
     }
@@ -146,7 +146,7 @@
     }
     .side-header h1 span { color: var(--ochre); }
     .side-header p {
-      font-size: 14px; color: rgba(232, 216, 190, 0.6);
+      font-size: 14px; color: rgba(245, 244, 237, 0.6);
       margin-top: 10px; font-weight: 400; line-height: 1.6; max-width: 520px;
     }
 
@@ -160,7 +160,7 @@
 
     .side-item {
       background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(232,216,190,0.08);
+      border: 1px solid rgba(245,244,237,0.08);
       border-radius: 16px;
       padding: 24px;
       display: flex; flex-direction: column; gap: 10px;
@@ -181,7 +181,7 @@
     }
     .side-desc {
       font-size: 13px; line-height: 1.65;
-      color: rgba(232, 216, 190, 0.6); font-weight: 400;
+      color: rgba(245, 244, 237, 0.6); font-weight: 400;
     }
 
     /* ── FARMING DROPDOWN ── */
@@ -248,7 +248,7 @@
       display: block; padding: 12px 16px; font-size: 15px; font-weight: 500;
       color: var(--sand); text-decoration: none; border-radius: 10px; transition: background 0.2s;
     }
-    .mobile-menu a:hover { background: rgba(232, 216, 190, 0.12); }
+    .mobile-menu a:hover { background: rgba(245, 244, 237, 0.12); }
 
     /* ── RESPONSIVE ── */
     @media (min-width: 800px) {
